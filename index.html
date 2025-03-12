@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatización Cuotas Hondubet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Panel de control fuera del canvas -->
+        <div class="control-panel">
+            <h2>Panel de Control</h2>
+            
+            <div class="control-group formato-group">
+                <label for="formato-selector">Seleccionar Formato:</label>
+                <select id="formato-selector">
+                    <option value="1">1 Enfrentamiento</option>
+                    <option value="2">2 Enfrentamientos</option>
+                    <option value="3">3 Enfrentamientos</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Fondo:</label>
+                <button id="cambiar-fondo">Cambiar Fondo Aleatorio</button>
+            </div>
+            
+            <div class="control-group">
+                <label for="liga-selector">Seleccionar Torneo:</label>
+                <select id="liga-selector">
+                    <option value="">Seleccionar...</option>
+                    <!-- Opciones se cargarán dinámicamente con JavaScript -->
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="escudo1-selector">Escudo Local:</label>
+                <select id="escudo1-selector">
+                    <option value="">Seleccionar...</option>
+                    <!-- Opciones se cargarán dinámicamente con JavaScript -->
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="escudo2-selector">Escudo Visitante:</label>
+                <select id="escudo2-selector">
+                    <option value="">Seleccionar...</option>
+                    <!-- Opciones se cargarán dinámicamente con JavaScript -->
+                </select>
+            </div>
+            
+            <div class="control-group cuotas-group">
+                <label>Cuotas:</label>
+                <div class="cuotas-inputs">
+                    <div class="cuota-input">
+                        <label for="cuota-local">Local:</label>
+                        <input type="number" id="cuota-local" step="0.05" min="1" value="1.95">
+                    </div>
+                    <div class="cuota-input">
+                        <label for="cuota-empate">Empate:</label>
+                        <input type="number" id="cuota-empate" step="0.05" min="1" value="3.25">
+                    </div>
+                    <div class="cuota-input">
+                        <label for="cuota-visitante">Visitante:</label>
+                        <input type="number" id="cuota-visitante" step="0.05" min="1" value="3.65">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-group hora-group">
+                <label for="hora-partido">Hora del Partido:</label>
+                <input type="time" id="hora-partido-input" value="18:30">
+            </div>
+            
+            <div class="control-actions">
+                <button id="generar-btn">Generar Imagen</button>
+                <button id="descargar-btn">Descargar Imagen</button>
+            </div>
+            
+            <div class="instrucciones">
+                <h3>Instrucciones:</h3>
+                <ol>
+                    <li>Selecciona el formato según el número de enfrentamientos</li>
+                    <li>Selecciona un fondo o usa el aleatorio</li>
+                    <li>Elige el torneo que deseas mostrar</li>
+                    <li>Selecciona los escudos de los equipos</li>
+                    <li>Ajusta las cuotas si es necesario</li>
+                    <li>Haz clic en "Generar Imagen" para previsualizar</li>
+                    <li>Descarga la imagen cuando esté lista</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Canvas para la imagen a generar -->
+        <div class="canvas-container">
+            <div id="canvas" class="canvas">
+                <!-- Fondo (se cargará aleatoriamente con JS) -->
+                <div class="background-container"></div>
+                
+                <!-- Logo Hondubet -->
+                <div class="hondubet-logo">
+                    <img src="LogoHondubet.png" alt="Hondubet Logo">
+                </div>
+                
+                <!-- Contenedor de Logo Liga -->
+                <div class="liga-container">
+                    <!-- Se cargará dinámicamente el logo de la liga -->
+                </div>
+                
+                <!-- Contenedor de Fecha -->
+                <div class="fecha-container">
+                    <div class="dia"></div>
+                    <div class="mes"></div>
+                </div>
+                
+                <!-- Contenedores para los escudos (se añadirán en futuras implementaciones) -->
+                <div class="escudos-container">
+                    <div class="equipo equipo-local">
+                        <div class="escudo-local"></div>
+                    </div>
+                    
+                    <div class="equipo equipo-visitante">
+                        <div class="escudo-visitante"></div>
+                    </div>
+                </div>
+                
+                <!-- Contenedor para la hora del partido -->
+                <div class="hora-partido-container">
+                    <div class="hora-partido">18:30</div>
+                </div>
+
+                <!-- Banner del partido -->
+                <div class="match-banner-container">
+                    <div class="match-banner">
+                        <div class="team team-left nombre-equipo-banner local-banner">Local</div>
+                        <div class="vs-container">
+                            <div class="vs-triangle"></div>
+                            <div class="vs-text">VS</div>
+                        </div>
+                        <div class="team team-right nombre-equipo-banner visitante-banner">Visitante</div>
+                    </div>
+                </div>
+
+                <!-- Contenedor para las cuotas -->
+                <div class="cuotas-container">
+                    <div class="texto-empate">EMPATE</div>
+                    <div class="cuota cuota-local">
+                        <div class="valor-cuota">1.95</div>
+                    </div>
+                    <div class="cuota cuota-empate">
+                        <div class="valor-cuota">3.25</div>
+                    </div>
+                    <div class="cuota cuota-visitante">
+                        <div class="valor-cuota">3.65</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Añadimos las bibliotecas para generar imágenes -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
