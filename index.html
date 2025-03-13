@@ -24,6 +24,14 @@
                 </select>
             </div>
             
+            <!-- Pestañas para seleccionar el evento a configurar (solo visible en formatos 2 y 3) -->
+            <div class="control-group evento-tabs" style="display: none;">
+                <div class="tabs">
+                    <button class="tab-btn active" data-evento="1">Evento 1</button>
+                    <button class="tab-btn" data-evento="2">Evento 2</button>
+                </div>
+            </div>
+            
             <div class="control-group">
                 <label>Fondo:</label>
                 <button id="cambiar-fondo">Cambiar Fondo Aleatorio</button>
@@ -39,7 +47,11 @@
             
             <div class="control-group">
                 <label for="escudo1-selector">Escudo Local:</label>
-                <select id="escudo1-selector">
+                <select id="escudo1-selector" class="evento-1-control">
+                    <option value="">Seleccionar...</option>
+                    <!-- Opciones se cargarán dinámicamente con JavaScript -->
+                </select>
+                <select id="escudo1-selector-2" class="evento-2-control" style="display: none;">
                     <option value="">Seleccionar...</option>
                     <!-- Opciones se cargarán dinámicamente con JavaScript -->
                 </select>
@@ -47,7 +59,11 @@
             
             <div class="control-group">
                 <label for="escudo2-selector">Escudo Visitante:</label>
-                <select id="escudo2-selector">
+                <select id="escudo2-selector" class="evento-1-control">
+                    <option value="">Seleccionar...</option>
+                    <!-- Opciones se cargarán dinámicamente con JavaScript -->
+                </select>
+                <select id="escudo2-selector-2" class="evento-2-control" style="display: none;">
                     <option value="">Seleccionar...</option>
                     <!-- Opciones se cargarán dinámicamente con JavaScript -->
                 </select>
@@ -55,7 +71,7 @@
             
             <div class="control-group cuotas-group">
                 <label>Cuotas:</label>
-                <div class="cuotas-inputs">
+                <div class="cuotas-inputs evento-1-control">
                     <div class="cuota-input">
                         <label for="cuota-local">Local:</label>
                         <input type="number" id="cuota-local" step="0.05" min="1" value="1.95">
@@ -69,11 +85,26 @@
                         <input type="number" id="cuota-visitante" step="0.05" min="1" value="3.65">
                     </div>
                 </div>
+                <div class="cuotas-inputs evento-2-control" style="display: none;">
+                    <div class="cuota-input">
+                        <label for="cuota-local-2">Local:</label>
+                        <input type="number" id="cuota-local-2" step="0.05" min="1" value="1.95">
+                    </div>
+                    <div class="cuota-input">
+                        <label for="cuota-empate-2">Empate:</label>
+                        <input type="number" id="cuota-empate-2" step="0.05" min="1" value="3.25">
+                    </div>
+                    <div class="cuota-input">
+                        <label for="cuota-visitante-2">Visitante:</label>
+                        <input type="number" id="cuota-visitante-2" step="0.05" min="1" value="3.65">
+                    </div>
+                </div>
             </div>
             
             <div class="control-group hora-group">
                 <label for="hora-partido">Hora del Partido:</label>
-                <input type="time" id="hora-partido-input" value="18:30">
+                <input type="time" id="hora-partido-input" class="evento-1-control" value="18:30">
+                <input type="time" id="hora-partido-input-2" class="evento-2-control" style="display: none;" value="20:45">
             </div>
             
             <div class="control-actions">
@@ -128,43 +159,81 @@
                     </div>
                 </div>
                 
-                <!-- Contenedor para la hora del partido -->
-                <div class="hora-partido-container">
-                    <div class="hora-partido">18:30</div>
-                </div>
+                <!-- Módulo de Evento 1 - Contiene la información del primer partido y cuotas -->
+                <div class="evento-container evento-1">
+                    <!-- Contenedor para la hora del partido -->
+                    <div class="hora-partido-container">
+                        <div class="hora-partido">18:30</div>
+                    </div>
 
-                <!-- Banner del partido -->
-                <div class="match-banner-container">
-                    <div class="match-banner">
-                        <div class="team team-left nombre-equipo-banner local-banner">Local</div>
-                        <div class="vs-container">
-                            <div class="vs-triangle"></div>
-                            <div class="vs-text">VS</div>
+                    <!-- Banner del partido -->
+                    <div class="match-banner-container">
+                        <div class="match-banner">
+                            <div class="team team-left nombre-equipo-banner local-banner">Local</div>
+                            <div class="vs-container">
+                                <div class="vs-triangle"></div>
+                                <div class="vs-text">VS</div>
+                            </div>
+                            <div class="team team-right nombre-equipo-banner visitante-banner">Visitante</div>
                         </div>
-                        <div class="team team-right nombre-equipo-banner visitante-banner">Visitante</div>
+                    </div>
+
+                    <!-- Contenedor para las cuotas -->
+                    <div class="cuotas-container">
+                        <div class="texto-empate">EMPATE</div>
+                        <div class="hora-empate">18:30</div>
+                        <div class="cuota cuota-local">
+                            <div class="valor-cuota">1.95</div>
+                        </div>
+                        <div class="cuota cuota-empate">
+                            <div class="valor-cuota">3.25</div>
+                        </div>
+                        <div class="cuota cuota-visitante">
+                            <div class="valor-cuota">3.65</div>
+                        </div>
                     </div>
                 </div>
+                
+                <!-- Módulo de Evento 2 - Contiene la información del segundo partido y cuotas -->
+                <div class="evento-container evento-2" style="display: none;">
+                    <!-- Contenedor para la hora del partido -->
+                    <div class="hora-partido-container">
+                        <div class="hora-partido">20:45</div>
+                    </div>
 
-                <!-- Contenedor para las cuotas -->
-                <div class="cuotas-container">
-                    <div class="texto-empate">EMPATE</div>
-                    <div class="cuota cuota-local">
-                        <div class="valor-cuota">1.95</div>
+                    <!-- Banner del partido -->
+                    <div class="match-banner-container">
+                        <div class="match-banner">
+                            <div class="team team-left nombre-equipo-banner local-banner-2">Local</div>
+                            <div class="vs-container">
+                                <div class="vs-triangle"></div>
+                                <div class="vs-text">VS</div>
+                            </div>
+                            <div class="team team-right nombre-equipo-banner visitante-banner-2">Visitante</div>
+                        </div>
                     </div>
-                    <div class="cuota cuota-empate">
-                        <div class="valor-cuota">3.25</div>
-                    </div>
-                    <div class="cuota cuota-visitante">
-                        <div class="valor-cuota">3.65</div>
+
+                    <!-- Contenedor para las cuotas -->
+                    <div class="cuotas-container">
+                        <div class="texto-empate">EMPATE</div>
+                        <div class="hora-empate">20:45</div>
+                        <div class="cuota cuota-local">
+                            <div class="valor-cuota" id="valor-cuota-local-2">1.95</div>
+                        </div>
+                        <div class="cuota cuota-empate">
+                            <div class="valor-cuota" id="valor-cuota-empate-2">3.25</div>
+                        </div>
+                        <div class="cuota cuota-visitante">
+                            <div class="valor-cuota" id="valor-cuota-visitante-2">3.65</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Añadimos las bibliotecas para generar imágenes -->
+    <!-- Añadimos la biblioteca html2canvas -->
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 

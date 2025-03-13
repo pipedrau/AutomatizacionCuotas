@@ -345,45 +345,26 @@ button:hover {
 
 /* Contenedor de cuotas */
 .cuotas-container {
-    position: absolute;
-    top: 1590px; /* 1445px (top match-banner) + 120px (altura banner) + 25px (margen) */
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     width: 820px;
     height: 190px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-top: 25px; /* Espacio entre el banner y las cuotas */
     z-index: 2;
-    position: relative;
 }
 
 /* Estilo para cada cuota */
 .cuota {
-    background-color: #009aff;
-    border-radius: 10px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 290px;
     height: 120px;
     position: absolute;
-    overflow: visible;
-    /* Usar SVG para el fondo en lugar de clip-path para mejor compatibilidad */
-    background-color: transparent; /* Hacemos el fondo transparente */
-}
-
-/* Antes de cada cuota, creamos el fondo hexagonal con pseudo-elementos */
-.cuota::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #009aff;
-    z-index: -1;
+    border-radius: 10px;
     clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
     -webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
 }
@@ -407,10 +388,7 @@ button:hover {
 
 /* Eliminar este pseudo-elemento que está duplicando el texto EMPATE */
 .cuota-empate::before {
-    content: ''; /* Cambiamos a vacío pero mantenemos el elemento para el hexágono */
-    background-color: #009aff;
-    clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
-    -webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
+    content: none; /* Desactivamos el contenido para eliminarlo */
 }
 
 /* Estilos para el texto EMPATE */
@@ -435,6 +413,7 @@ button:hover {
     font-family: 'Poppins', sans-serif;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 3; /* Asegurar que el texto esté por encima */
 }
 
 /* Texto descriptivo de la cuota */
@@ -605,11 +584,96 @@ button:hover {
     box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.1);
 }
 
-/* Contenedor para la hora del partido */
-.hora-partido-container {
+/* Contenedor para el módulo de evento - Agrupa hora del partido, banner y cuotas */
+.evento-container {
     position: absolute;
-    top: 1380px; /* 1047px (escudos) + ~300px (altura escudos) + 33px (espacio) */
     left: 0;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Reducir el espacio entre elementos del evento */
+    transition: all 0.3s ease;
+}
+
+/* Posicionamiento para el evento 1 */
+.evento-container.evento-1 {
+    top: 1380px; /* Posición normal para formato 1 */
+}
+
+/* Posicionamiento específico para cada evento en el formato de 2 enfrentamientos */
+.formato-2 .evento-container.evento-1 {
+    top: 850px; /* Reducido de 900px a 850px (100px más arriba) */
+}
+
+.formato-2 .evento-container.evento-2 {
+    top: 1300px; /* Ajustado para mantener separación adecuada entre eventos */
+    display: flex; /* Aseguramos que sea visible en formato 2 */
+}
+
+/* Espaciados adicionales para el formato de 2 enfrentamientos */
+.formato-2 .escudos-container {
+    display: none; /* Ocultamos los escudos grandes en formato 2 */
+}
+
+/* Modificaciones específicas para el formato 2 */
+.formato-2 .texto-empate {
+    display: none; /* Ocultamos la palabra EMPATE en el formato 2 */
+}
+
+.formato-2 .hora-partido-container {
+    display: none; /* Ocultamos el contenedor de hora original en el formato 2 */
+}
+
+/* Nuevo estilo para mostrar la hora en lugar de EMPATE en el formato 2 */
+.formato-2 .hora-empate {
+    position: absolute;
+    top: -5px; /* Ajustado para alineación visual óptima */
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500; /* Un poco más bold que el original */
+    font-size: 30pt;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    z-index: 4;
+    display: block; /* Aseguramos que sea visible en formato 2 */
+}
+
+/* Estilos para las pestañas de selección de evento */
+.evento-tabs .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.evento-tabs .tab-btn {
+    flex: 1;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #555;
+}
+
+.evento-tabs .tab-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.evento-tabs .tab-btn.active {
+    background-color: #0056b3;
+    color: white;
+    border-color: #0056b3;
+}
+
+/* Contenedor para la hora del partido (parte del módulo evento) */
+.hora-partido-container {
     width: 100%;
     height: 40px;
     display: flex;
@@ -627,11 +691,8 @@ button:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Estilos para el banner del partido */
+/* Estilos para el banner del partido (parte del módulo evento) */
 .match-banner-container {
-    position: absolute;
-    top: 1445px; /* 1380px (top hora-partido) + 40px (altura hora) + 25px (espacio) */
-    left: 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -651,13 +712,14 @@ button:hover {
     position: relative;
 }
 
+/* Restaurar los estilos para los nombres de equipo */
 .team {
-    padding: 0 10px; /* Reducimos el padding horizontal para dar más espacio al texto */
+    padding: 0 10px;
     font-size: 36px;
     font-weight: 800;
     font-family: 'Poppins', sans-serif;
     color: #0a1e3a;
-    width: calc((100% - 160px) / 2); /* Calculamos dinámicamente el ancho para los equipos */
+    width: calc((100% - 160px) / 2);
     text-align: center;
     text-transform: uppercase;
     display: flex;
@@ -726,4 +788,9 @@ button:hover {
     outline: none;
     border-color: #0056b3;
     box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.1);
+}
+
+/* Ocultar la hora-empate en formato 1 */
+.hora-empate {
+    display: none; /* Por defecto oculto, solo visible en formato 2 */
 } 
