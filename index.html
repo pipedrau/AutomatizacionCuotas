@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
     <title>Automatización Cuotas Hondubet</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.9.5/dist/dom-to-image-more.min.js"></script>
+    <link rel="preload" href="LogoHondubet.png" as="image" crossorigin="anonymous">
+    <link rel="preload" href="logosliga/Premier.webp" as="image" crossorigin="anonymous">
+    <link rel="preload" href="logosliga/Laliga.webp" as="image" crossorigin="anonymous">
+    <link rel="preload" href="logosliga/ChampionsLeague.webp" as="image" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
@@ -232,8 +242,30 @@
         </div>
     </div>
 
-    <!-- Añadimos la biblioteca html2canvas -->
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <!-- Mensaje sobre el servidor -->
+    <div id="cors-message" style="display: none; position: fixed; top: 10px; right: 10px; background: #ffeb3b; padding: 10px; border-radius: 5px; max-width: 350px; font-size: 14px; z-index: 9999; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+      <b>Recomendación:</b> Para evitar problemas con la generación de imágenes, ejecuta esta aplicación a través del servidor local incluido:
+      <ol style="margin-top: 5px; margin-bottom: 5px; padding-left: 20px;">
+        <li>Abre una terminal en esta carpeta</li>
+        <li>Ejecuta: <code>npm install</code> (solo la primera vez)</li>
+        <li>Ejecuta: <code>npm start</code></li>
+        <li>Abre: <a href="http://localhost:3000" target="_blank">http://localhost:3000</a></li>
+      </ol>
+      <button onclick="this.parentNode.style.display='none'" style="background: #333; color: white; border: none; padding: 3px 8px; border-radius: 3px; cursor: pointer; float: right;">Cerrar</button>
+      <div style="clear: both;"></div>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+      // Mostrar mensaje CORS si estamos en file://
+      document.addEventListener('DOMContentLoaded', function() {
+        // En GitHub, no mostrar este mensaje
+        if (window.location.protocol === 'file:' && 
+            window.location.href.indexOf('github.io') === -1 && 
+            window.location.href.indexOf('github.com') === -1) {
+          document.getElementById('cors-message').style.display = 'block';
+        }
+      });
+    </script>
 </body>
 </html> 

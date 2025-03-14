@@ -2,21 +2,112 @@
 let fondos = {}; // Ahora será un objeto con ligas y competiciones como claves y arrays de fondos como valores
 let escudos = {
     "Premier": [
-        "escudos/Premier/newcastle.png",
+        "escudos/Premier/ManchesterUnited.png",
+        "escudos/Premier/ManchesterCity.png",
+        "escudos/Premier/Liverpool.png",
+        "escudos/Premier/Arsenal.png",
+        "escudos/Premier/Chelsea.png",
+        "escudos/Premier/Tottenham.png",
+        "escudos/Premier/AstonVilla.png",
+        "escudos/Premier/Newcastle.png",
         "escudos/Premier/westham.png",
-        "escudos/Premier/Arsenal.webp",
-        "escudos/Premier/AstonVilla.webp"
+        "escudos/Premier/Brighton.png",
+        "escudos/Premier/Wolves.png",
+        "escudos/Premier/Everton.png",
+        "escudos/Premier/Fulham.png",
+        "escudos/Premier/Brentford.png",
+        "escudos/Premier/CrystalPalace.png",
+        "escudos/Premier/NottinghamForest.png",
+        "escudos/Premier/Bournemouth.png",
+        "escudos/Premier/Southampton.png",
+        "escudos/Premier/Leicester.png",
+        "escudos/Premier/Ipswich.png"
     ],
     "LaLiga": [
         "escudos/LaLiga/RealMadrid.webp",
-        "escudos/LaLiga/AtleticoMadrid.webp"
+        "escudos/LaLiga/AtleticoMadrid.webp",
+        "escudos/LaLiga/AthleticBilbao.png",
+        "escudos/LaLiga/AtleticoMadrid.png",
+        "escudos/LaLiga/CAOsasuna.png",
+        "escudos/LaLiga/CDLeganes.png",
+        "escudos/LaLiga/CeltaDeVigo.png",
+        "escudos/LaLiga/DeportivoAlaves.png",
+        "escudos/LaLiga/FCBarcelona.png",
+        "escudos/LaLiga/GetafeCF.png",
+        "escudos/LaLiga/GironaFC.png",
+        "escudos/LaLiga/RCDEspanyolBarcelona.png",
+        "escudos/LaLiga/RCDMallorca.png",
+        "escudos/LaLiga/RayoVallecano.png",
+        "escudos/LaLiga/RealBetisBalomp.png",
+        "escudos/LaLiga/RealMadrid.png",
+        "escudos/LaLiga/RealSociedad.png",
+        "escudos/LaLiga/RealValladolidCF.png",
+        "escudos/LaLiga/SevillaFC.png",
+        "escudos/LaLiga/UDLasPalmas.png",
+        "escudos/LaLiga/ValenciaCF.png",
+        "escudos/LaLiga/VillarrealCF.png"
     ],
-    "SerieA": [],
+    "SerieA": [
+        "escudos/SerieA/ACMilan.png",
+        "escudos/SerieA/ACMonza.png",
+        "escudos/SerieA/ACFFiorentina.png",
+        "escudos/SerieA/ASRoma.png",
+        "escudos/SerieA/AtalantaBC.png",
+        "escudos/SerieA/BolognaFC1909.png",
+        "escudos/SerieA/CagliariCalcio.png",
+        "escudos/SerieA/Como1907.png",
+        "escudos/SerieA/FCEmpoli.png",
+        "escudos/SerieA/GenoaCFC.png",
+        "escudos/SerieA/HellasVerona.png",
+        "escudos/SerieA/InterMilan.png",
+        "escudos/SerieA/JuventusFC.png",
+        "escudos/SerieA/ParmaCalcio1913.png",
+        "escudos/SerieA/SSLazio.png",
+        "escudos/SerieA/SSCNapoli.png",
+        "escudos/SerieA/TorinoFC.png",
+        "escudos/SerieA/USLecce.png",
+        "escudos/SerieA/UdineseCalcio.png",
+        "escudos/SerieA/VeneziaFC.png"
+    ],
     "Bundesliga": [
-        "escudos/Bundeliga/BorussiaDortmund.webp"
+        "escudos/Bundesliga/BorussiaDortmund.png",
+        "escudos/Bundesliga/BayernMunich.png",
+        "escudos/Bundesliga/BayerLeverkusen.png",
+        "escudos/Bundesliga/RBLeipzig.png",
+        "escudos/Bundesliga/Wolfsburg.png",
+        "escudos/Bundesliga/EintrachtFrankfurt.png",
+        "escudos/Bundesliga/BorussiaMG.png",
+        "escudos/Bundesliga/Hoffenheim.png",
+        "escudos/Bundesliga/Stuttgart.png",
+        "escudos/Bundesliga/Mainz05.png",
+        "escudos/Bundesliga/Freiburg.png",
+        "escudos/Bundesliga/Augsburg.png",
+        "escudos/Bundesliga/UnionBerlin.png",
+        "escudos/Bundesliga/Bremen.png",
+        "escudos/Bundesliga/Bochum.png",
+        "escudos/Bundesliga/FCHeidenheim.png",
+        "escudos/Bundesliga/StPauli.png",
+        "escudos/Bundesliga/HolsteinKiel.png"
     ],
     "LeagueOne": [
-        "escudos/LeagueOne/Lille.webp"
+        "escudos/LeagueOne/AJAuxerre.png",
+        "escudos/LeagueOne/ASMonaco.png",
+        "escudos/LeagueOne/ASSaintEtienne.png",
+        "escudos/LeagueOne/AngersSCO.png",
+        "escudos/LeagueOne/FCNantes.png",
+        "escudos/LeagueOne/FCToulouse.png",
+        "escudos/LeagueOne/LOSCLille.png",
+        "escudos/LeagueOne/LeHavreAC.png",
+        "escudos/LeagueOne/MontpellierHSC.png",
+        "escudos/LeagueOne/OGCNice.png",
+        "escudos/LeagueOne/OlympiqueLyon.png",
+        "escudos/LeagueOne/OlympiqueMarseille.png",
+        "escudos/LeagueOne/ParisSaintGermain.png",
+        "escudos/LeagueOne/RCLens.png",
+        "escudos/LeagueOne/RCStrasbourgAlsace.png",
+        "escudos/LeagueOne/StadeBrestois29.png",
+        "escudos/LeagueOne/StadeReims.png",
+        "escudos/LeagueOne/StadeRennaisFC.png"
     ],
     "LigaMX": [],
     "LigaNacional": [],
@@ -137,9 +228,31 @@ function precargarEscudos() {
         }
     }
     
-    // Precargar cada imagen
+    // Precargar cada imagen con atributo crossOrigin
     escudosAPrecargar.forEach(ruta => {
         const img = new Image();
+        img.crossOrigin = "anonymous"; // Importante para evitar problemas CORS
+        img.onerror = function() {
+            console.warn(`No se pudo cargar: ${ruta}. Intentando como data URL...`);
+            
+            // Si falla, intentar convertir la imagen a base64 (requiere servidor)
+            fetch(ruta)
+                .then(response => response.blob())
+                .then(blob => {
+                    const reader = new FileReader();
+                    reader.onload = function() {
+                        const dataUrl = reader.result;
+                        // Almacenar en cache para uso futuro
+                        window.imageCache = window.imageCache || {};
+                        window.imageCache[ruta] = dataUrl;
+                        console.log(`Imagen convertida a base64: ${ruta}`);
+                    };
+                    reader.readAsDataURL(blob);
+                })
+                .catch(err => {
+                    console.error(`Error al convertir imagen: ${ruta}`, err);
+                });
+        };
         img.src = ruta;
     });
     
@@ -202,7 +315,7 @@ function formatearNombreLiga(liga) {
         "Libertadores": "Conmebol Libertadores",
         "LigaMX": "Liga MX",
         "LigaNacional": "Liga Nacional",
-        "LeagueOne": "League One"
+        "LeagueOne": "Ligue 1"
     };
     
     return nombresFormateados[liga] || liga;
@@ -375,7 +488,7 @@ function mostrarNotificacion(mensaje, tipo = 'info') {
         notificacion.classList.remove('mostrar');
         setTimeout(() => {
             notificacion.remove();
-        }, 300); // Tiempo para que termine la animación de salida
+        }, 3000); // Tiempo para que termine la animación de salida
     }, 3000);
 }
 
@@ -437,6 +550,15 @@ function configurarEventos() {
             const imgEscudo = document.createElement('img');
             imgEscudo.src = escudoPath;
             imgEscudo.alt = 'Escudo Local';
+            // Aplicar altura fija de 300px y agregar trazo blanco
+            imgEscudo.style.height = '300px';
+            imgEscudo.style.width = 'auto';
+            // Aplicar múltiples sombras para crear un contorno blanco más grueso
+            imgEscudo.style.filter = 
+                'drop-shadow(0 0 2px white) ' +
+                'drop-shadow(0 0 2px white) ' +
+                'drop-shadow(0 0 3px white) ' +
+                'drop-shadow(0 0 4px white)';
             escudoLocalContainer.appendChild(imgEscudo);
             
             // Actualizar el nombre del equipo local
@@ -468,6 +590,15 @@ function configurarEventos() {
             const imgEscudo = document.createElement('img');
             imgEscudo.src = escudoPath;
             imgEscudo.alt = 'Escudo Visitante';
+            // Aplicar altura fija de 300px y agregar trazo blanco
+            imgEscudo.style.height = '300px';
+            imgEscudo.style.width = 'auto';
+            // Aplicar múltiples sombras para crear un contorno blanco más grueso
+            imgEscudo.style.filter = 
+                'drop-shadow(0 0 2px white) ' +
+                'drop-shadow(0 0 2px white) ' +
+                'drop-shadow(0 0 3px white) ' +
+                'drop-shadow(0 0 4px white)';
             escudoVisitanteContainer.appendChild(imgEscudo);
             
             // Actualizar el nombre del equipo visitante
@@ -582,7 +713,7 @@ function configurarEventos() {
         actualizarHoraPartidoEvento2(horaPartidoInput2.value);
     });
     
-    // Generar imagen utilizando html2canvas
+    // Generar imagen capturando EXACTAMENTE lo que se ve en pantalla
     const generarBtn = document.getElementById('generar-btn');
     generarBtn.addEventListener('click', generarImagen);
     
@@ -596,16 +727,24 @@ function cargarLogoLiga(liga) {
     const ligaContainer = document.querySelector('.liga-container');
     ligaContainer.innerHTML = '';
     
+    // Establecer un color de fondo para el contenedor que ayude con el contraste de los logos
+    ligaContainer.style.backgroundColor = 'transparent';
+    
     // Buscar el logo correspondiente a la liga o competición seleccionada
     
     // Mapeo simplificado de ligas y competiciones a nombres de archivo (primero intentamos webp)
     const mapeoLogos = {
-        "LaLiga": ['logosliga/Laliga.webp', 'logosliga/Laliga.png'],
-        "Premier": ['logosliga/Premier.webp', 'logosliga/Premier.png'],
-        "ChampionsLeague": ['logosliga/ChampionsLeague.webp', 'logosliga/ChampionsLeague.png', 'logosliga/Champions.png'],
-        "EuropaLeague": ['logosliga/EuropaLeague.webp', 'logosliga/EuropaLeague.png', 'logosliga/Europa.png'],
-        "Concacaf": ['logosliga/Concacaf.webp', 'logosliga/Concacaf.png'],
-        "Libertadores": ['logosliga/Libertadores.webp', 'logosliga/Libertadores.png']
+        "LaLiga": ['logosliga/Laliga.webp', 'logosliga/Laliga.png', 'logosliga/Laliga.svg'],
+        "Premier": ['logosliga/Premier.webp', 'logosliga/Premier.png', 'logosliga/Premier.svg'],
+        "SerieA": ['logosliga/SerieA.png', 'logosliga/SerieA.webp', 'logosliga/SerieA.svg'],
+        "Bundesliga": ['logosliga/Bundesliga.png', 'logosliga/Bundesliga.webp', 'logosliga/Bundesliga.svg'],
+        "LeagueOne": ['logosliga/LeagueOne.png', 'logosliga/LeagueOne.webp', 'logosliga/LeagueOne.svg'],
+        "LigaMX": ['logosliga/LigaMX.png', 'logosliga/LigaMX.webp', 'logosliga/LigaMX.svg'],
+        "LigaNacional": ['logosliga/LigaNacionalHonduras.png', 'logosliga/LigaNacional.webp', 'logosliga/LigaNacional.svg'],
+        "ChampionsLeague": ['logosliga/ChampionsLeague.png', 'logosliga/ChampionsLeague.webp', 'logosliga/ChampionsLeague.svg', 'logosliga/Champions.png'],
+        "EuropaLeague": ['logosliga/EuropaLeague.png', 'logosliga/EuropaLeague.webp', 'logosliga/EuropaLeague.svg', 'logosliga/Europa.png'],
+        "Concacaf": ['logosliga/Concacaf.png', 'logosliga/Concacaf.webp', 'logosliga/Concacaf.svg'],
+        "Libertadores": ['logosliga/Libertadores.webp', 'logosliga/Libertadores.png', 'logosliga/Libertadores.svg']
     };
     
     // Obtener los posibles paths para esta liga
@@ -625,30 +764,51 @@ function cargarLogoLiga(liga) {
     function intentarCargarLogo(rutas, indice) {
         if (indice >= rutas.length) {
             // Si llegamos al final de las rutas sin éxito, mostrar texto alternativo
+            console.error(`No se pudo cargar ningún logo para ${formatearNombreLiga(liga)}. Rutas intentadas:`, rutas);
             mostrarNotificacion(`No se encontró ningún logo para ${formatearNombreLiga(liga)}. Seleccione otro torneo o agregue el logo correspondiente.`, 'warning');
             mostrarTextoAlternativo();
             return;
         }
         
         const rutaActual = rutas[indice];
+        console.log(`Intentando cargar logo: ${rutaActual} para ${liga}`);
         
         // Crear una nueva imagen para probar
         const img = new Image();
         
         img.onload = function() {
             // Si la imagen carga correctamente, mostrarla
+            console.log(`Logo cargado exitosamente: ${rutaActual} para ${liga}`);
             const imgLiga = document.createElement('img');
             imgLiga.src = rutaActual;
             imgLiga.alt = 'Logo Liga';
+            
+            // Aplicar estilos para altura fija y color blanco
+            imgLiga.style.height = '300px'; // Ajustado a 300px según requerimiento
+            imgLiga.style.width = 'auto';
+            imgLiga.style.maxWidth = '100%';
+            imgLiga.style.objectFit = 'contain';
+            
+            // Aplicar filtro para mostrar el logo en blanco con trazo alrededor
+            const esFormatoPNG = rutaActual.toLowerCase().endsWith('.png');
+            
+            if (esFormatoPNG) {
+                // Para PNG con posible transparencia, usar una estrategia más suave
+                imgLiga.style.filter = 'brightness(0) invert(1) drop-shadow(0 0 2px white)';
+                imgLiga.style.mixBlendMode = 'lighten';
+            } else {
+                // Para otros formatos, usar un filtro más fuerte
+                imgLiga.style.filter = 'brightness(0) invert(1) drop-shadow(0 0 2px white)';
+            }
+            
             ligaContainer.appendChild(imgLiga);
             
             // Mostrar notificación de éxito
             mostrarNotificacion(`${formatearNombreLiga(liga)} seleccionada`, 'info');
-            console.log(`Logo cargado: ${rutaActual}`);
         };
         
         img.onerror = function() {
-            console.error(`Error al cargar el logo: ${rutaActual}`);
+            console.error(`Error al cargar el logo: ${rutaActual} para ${liga}`);
             // Intentar con la siguiente ruta
             intentarCargarLogo(rutas, indice + 1);
         };
@@ -778,124 +938,228 @@ function actualizarHoraPartidoEvento2(hora) {
     mostrarNotificacion(`Hora del partido 2 actualizada a ${horaFormateada}`, 'success');
 }
 
-// Función para generar la imagen utilizando html2canvas
+// Función para generar la imagen capturando EXACTAMENTE lo que se ve en pantalla
 function generarImagen() {
-    // Mostramos notificación de que se está generando la imagen
     mostrarNotificacion('Generando imagen, por favor espera...', 'info');
     
-    // Referencia al canvas
+    // Referencia al elemento canvas
     const canvasElement = document.getElementById('canvas');
     
-    // Eliminamos temporalmente la transformación de escala para capturar en tamaño completo
-    const scaleOriginal = canvasElement.style.transform;
-    canvasElement.style.transform = 'none';
-    
-    // Guardamos la posición original para restaurarla después
-    const originalPosition = {
-        position: canvasElement.style.position,
-        top: canvasElement.style.top,
-        left: canvasElement.style.left,
-        zIndex: canvasElement.style.zIndex
+    // Guardar la posición de scroll actual
+    const scrollPosInicial = {
+        x: window.scrollX,
+        y: window.scrollY
     };
     
-    // Configuramos para la captura
-    canvasElement.style.position = 'fixed';
-    canvasElement.style.top = '-9999px';
-    canvasElement.style.left = '-9999px';
-    canvasElement.style.zIndex = '-9999';
-    document.body.appendChild(canvasElement);
+    // Hacer scroll hasta que el canvas sea visible (si no lo está)
+    canvasElement.scrollIntoView({ behavior: 'auto', block: 'start' });
     
-    // Aplicar estilos optimizados para la captura, especialmente para los hexágonos
-    aplicarEstilosParaCaptura();
-    
-    // Utilizamos html2canvas para capturar el canvas con configuraciones adicionales
-    html2canvas(canvasElement, {
-        allowTaint: true,
-        useCORS: true,
-        scale: 3, // Mayor escala para mejor calidad
-        logging: false,
-        backgroundColor: null,
-        imageTimeout: 0, // Sin tiempo de espera para imágenes
-        onclone: function(documentClone) {
-            // Aplicar manualmente la forma hexagonal a todas las cuotas en el clon
-            const clonedCuotas = documentClone.querySelectorAll('.cuota');
-            const clipPathValue = 'polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%)';
+    // Esperar a que se complete el scroll y el DOM se actualice
+    setTimeout(() => {
+        // SOLUCIÓN DEFINITIVA: Usar dom-to-image-more para preservar clip-path y todos los estilos
+        console.log("Iniciando captura con dom-to-image-more...");
+        
+        // Generar primero usando dom-to-image-more (mejor soporte para clip-path)
+        domtoimage.toPng(canvasElement, {
+            quality: 1.0,
+            bgcolor: '#000000',
+            style: {
+                'transform': 'none',
+                'transform-origin': 'center'
+            },
+            filter: (node) => {
+                // Asegurarse de que todos los nodos sean incluidos
+                return true;
+            }
+        })
+        .then(function(dataUrl) {
+            console.log("✅ Imagen capturada exitosamente con dom-to-image-more");
+            postProcesarImagen(dataUrl);
+        })
+        .catch(function(error) {
+            console.error("Error con dom-to-image-more:", error);
+            console.log("Intentando con domtoimage.more.toPng...");
             
-            clonedCuotas.forEach(cuota => {
-                // Aplicar los estilos directamente en el clon
-                cuota.style.clipPath = clipPathValue;
-                cuota.style.webkitClipPath = clipPathValue;
-                cuota.style.backgroundColor = 'rgb(0, 200, 255)';
-                cuota.style.borderRadius = '0';
-                
-                // Crear un SVG de respaldo para navegadores que no soporten clip-path
-                const backgroundColor = 'rgb(0, 200, 255)';
-                const width = cuota.offsetWidth;
-                const height = cuota.offsetHeight;
-                
-                // Crear un hexágono SVG de respaldo y añadirlo como pseudo-elemento
-                const svgHexagon = `<svg width="${width}" height="${height}" style="position:absolute;top:0;left:0;z-index:-1;">
-                    <polygon points="${width*0.2},0 ${width*0.8},0 ${width},${height*0.5} ${width*0.8},${height} ${width*0.2},${height} 0,${height*0.5}" 
-                    fill="${backgroundColor}" />
-                </svg>`;
-                
-                // Añadir el SVG antes del contenido de la cuota
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = svgHexagon;
-                const svgElement = tempDiv.firstChild;
-                
-                // Colocar el SVG como primer hijo
-                if (cuota.firstChild) {
-                    cuota.insertBefore(svgElement, cuota.firstChild);
-                } else {
-                    cuota.appendChild(svgElement);
+            // Intentar con el namespace alternativo domtoimage.more (disponible en algunas versiones)
+            if (typeof domtoimage.more !== 'undefined') {
+                domtoimage.more.toPng(canvasElement, {
+                    quality: 1.0,
+                    bgcolor: '#000000'
+                })
+                .then(function(dataUrl) {
+                    console.log("✅ Imagen capturada con domtoimage.more");
+                    postProcesarImagen(dataUrl);
+                })
+                .catch(function(error) {
+                    console.error("Error con domtoimage.more:", error);
+                    intentarMetodoHTML2Canvas();
+                });
+            } else {
+                intentarMetodoHTML2Canvas();
+            }
+        });
+        
+        // Método fallback usando html2canvas
+        function intentarMetodoHTML2Canvas() {
+            console.log("Intentando método con html2canvas como fallback...");
+            mostrarNotificacion('Intentando método alternativo...', 'info');
+            
+            html2canvas(canvasElement, {
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#000000',
+                scale: 2,
+                logging: true,
+                foreignObjectRendering: true,
+                onclone: function(documentClone) {
+                    const canvasClone = documentClone.getElementById('canvas');
+                    
+                    if (canvasClone) {
+                        // Procesar todos los elementos con clip-path
+                        const elementosConClipPath = canvasClone.querySelectorAll('*[style*="clip-path"]');
+                        console.log(`Procesando ${elementosConClipPath.length} elementos con clip-path...`);
+                        
+                        elementosConClipPath.forEach(elemento => {
+                            const estiloComputado = window.getComputedStyle(elemento);
+                            const clipPath = estiloComputado.clipPath;
+                            
+                            if (clipPath && clipPath !== 'none') {
+                                // Forzar el clip-path en el elemento
+                                elemento.style.clipPath = clipPath;
+                                console.log(`Aplicando clip-path: ${clipPath}`);
+                            }
+                        });
+                    }
                 }
+            }).then(canvas => {
+                postProcesarImagen(canvas.toDataURL('image/png', 1.0));
+            }).catch(error => {
+                console.error("Error con html2canvas:", error);
+                mostrarNotificacion('No se pudo generar la imagen. Por favor, intenta de nuevo.', 'error');
+                window.scrollTo(scrollPosInicial.x, scrollPosInicial.y);
             });
-        },
-        renderOnlyClipped: false // Capturar todo, no solo áreas recortadas
-    }).then(canvas => {
-        // Restauramos las propiedades originales
-        canvasElement.style.transform = scaleOriginal;
-        canvasElement.style.position = originalPosition.position || '';
-        canvasElement.style.top = originalPosition.top || '';
-        canvasElement.style.left = originalPosition.left || '';
-        canvasElement.style.zIndex = originalPosition.zIndex || '';
+        }
         
-        // Reubicamos el canvas en su posición original
-        const canvasContainer = document.querySelector('.canvas-container');
-        canvasContainer.appendChild(canvasElement);
+        // Función para post-procesar la imagen capturada (redimensionar a 1080x1920)
+        function postProcesarImagen(dataUrl) {
+            // Crear una imagen para procesar
+            const img = new Image();
+            img.onload = function() {
+                // Crear canvas con las dimensiones finales
+                const canvasFinal = document.createElement('canvas');
+                canvasFinal.width = 1080;
+                canvasFinal.height = 1920;
+                const ctx = canvasFinal.getContext('2d');
+                
+                // Dibujar fondo negro
+                ctx.fillStyle = '#000000';
+                ctx.fillRect(0, 0, 1080, 1920);
+                
+                // Calcular proporciones
+                const aspectRatio = img.width / img.height;
+                let targetWidth, targetHeight, offsetX = 0, offsetY = 0;
+                
+                if (aspectRatio > (1080 / 1920)) {
+                    targetWidth = 1080;
+                    targetHeight = targetWidth / aspectRatio;
+                    offsetY = (1920 - targetHeight) / 2;
+                } else {
+                    targetHeight = 1920;
+                    targetWidth = targetHeight * aspectRatio;
+                    offsetX = (1080 - targetWidth) / 2;
+                }
+                
+                // Dibujar la imagen con suavizado de alta calidad
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = 'high';
+                ctx.drawImage(
+                    img,
+                    0, 0, img.width, img.height,
+                    offsetX, offsetY, targetWidth, targetHeight
+                );
+                
+                // Guardar la imagen final
+                imagenGenerada = canvasFinal.toDataURL('image/png', 1.0);
+                
+                console.log("✅ Imagen post-procesada correctamente");
+                mostrarNotificacion('¡Imagen generada con éxito! Ahora puedes descargarla.', 'success');
+                
+                const descargarBtn = document.getElementById('descargar-btn');
+                descargarBtn.disabled = false;
+                descargarBtn.classList.add('active');
+                
+                // Restaurar la posición de scroll
+                window.scrollTo(scrollPosInicial.x, scrollPosInicial.y);
+                
+                // Mostrar vista previa
+                mostrarVistaPrevia(imagenGenerada);
+            };
+            
+            img.onerror = function() {
+                console.error("Error al cargar la imagen capturada");
+                mostrarNotificacion('Error al procesar la imagen. Por favor, intenta de nuevo.', 'error');
+                window.scrollTo(scrollPosInicial.x, scrollPosInicial.y);
+            };
+            
+            img.src = dataUrl;
+        }
         
-        // Restaurar los estilos originales
-        restaurarEstilosOriginales();
-        
-        // Guardamos la imagen generada como dataURL
-        imagenGenerada = canvas.toDataURL('image/png');
-        
-        // Mostramos una notificación de éxito
-        mostrarNotificacion('¡Imagen generada con éxito! Ahora puedes descargarla.', 'success');
-        
-        // Habilitamos el botón de descarga
-        const descargarBtn = document.getElementById('descargar-btn');
-        descargarBtn.disabled = false;
-        descargarBtn.classList.add('active');
-    }).catch(error => {
-        console.error('Error al generar la imagen:', error);
-        mostrarNotificacion('Error al generar la imagen. Intenta nuevamente.', 'error');
-        
-        // Restaurar propiedades originales en caso de error
-        canvasElement.style.transform = scaleOriginal;
-        canvasElement.style.position = originalPosition.position || '';
-        canvasElement.style.top = originalPosition.top || '';
-        canvasElement.style.left = originalPosition.left || '';
-        canvasElement.style.zIndex = originalPosition.zIndex || '';
-        
-        // Reubicamos el canvas en su posición original
-        const canvasContainer = document.querySelector('.canvas-container');
-        canvasContainer.appendChild(canvasElement);
-        
-        // Restaurar los estilos originales
-        restaurarEstilosOriginales();
-    });
+        // Función para mostrar vista previa de la imagen
+        function mostrarVistaPrevia(imagenSrc) {
+            // Crear contenedor para vista previa
+            const previewContainer = document.createElement('div');
+            previewContainer.style.position = 'fixed';
+            previewContainer.style.top = '50%';
+            previewContainer.style.left = '50%';
+            previewContainer.style.transform = 'translate(-50%, -50%)';
+            previewContainer.style.backgroundColor = 'rgba(0,0,0,0.9)';
+            previewContainer.style.padding = '20px';
+            previewContainer.style.borderRadius = '10px';
+            previewContainer.style.zIndex = '10000';
+            previewContainer.style.boxShadow = '0 0 20px rgba(0,0,0,0.5)';
+            previewContainer.style.maxWidth = '90%';
+            previewContainer.style.maxHeight = '90vh';
+            previewContainer.style.display = 'flex';
+            previewContainer.style.flexDirection = 'column';
+            previewContainer.style.alignItems = 'center';
+            
+            // Crear imagen de vista previa
+            const previewImg = document.createElement('img');
+            previewImg.src = imagenSrc;
+            previewImg.style.maxWidth = '100%';
+            previewImg.style.maxHeight = '80vh';
+            previewImg.style.borderRadius = '5px';
+            previewImg.style.marginBottom = '15px';
+            previewImg.style.boxShadow = '0 0 10px rgba(255,255,255,0.1)';
+            
+            // Añadir mensaje informativo
+            const infoText = document.createElement('p');
+            infoText.textContent = 'Imagen generada (1080×1920 px)';
+            infoText.style.color = 'white';
+            infoText.style.marginBottom = '15px';
+            infoText.style.fontWeight = 'bold';
+            
+            // Crear botón para cerrar
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Cerrar vista previa';
+            closeButton.style.padding = '8px 16px';
+            closeButton.style.backgroundColor = '#28a745';
+            closeButton.style.color = 'white';
+            closeButton.style.border = 'none';
+            closeButton.style.borderRadius = '4px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.fontWeight = 'bold';
+            closeButton.onclick = function() {
+                document.body.removeChild(previewContainer);
+            };
+            
+            // Añadir elementos al contenedor
+            previewContainer.appendChild(infoText);
+            previewContainer.appendChild(previewImg);
+            previewContainer.appendChild(closeButton);
+            document.body.appendChild(previewContainer);
+        }
+    }, 300);
 }
 
 // Función para descargar la imagen generada
@@ -942,89 +1206,6 @@ function descargarImagen() {
     mostrarNotificacion('¡La imagen se está descargando!', 'success');
 }
 
-// Función para aplicar el estilo hexagonal a las cuotas (para html2canvas)
-function aplicarEstilosParaCaptura() {
-    // Obtener todos los elementos de cuota
-    const cuotas = document.querySelectorAll('.cuota');
-    
-    // Aplicar estilos para asegurar compatibilidad
-    cuotas.forEach(cuota => {
-        // Guardar el estilo original para restaurarlo después
-        cuota.dataset.originalClipPath = cuota.style.clipPath;
-        cuota.dataset.originalBackground = cuota.style.backgroundColor;
-        cuota.dataset.originalPosition = cuota.style.position;
-        cuota.dataset.originalZIndex = cuota.style.zIndex;
-        
-        // Aplicar estilos inline directamente para forzar su captura
-        cuota.style.position = 'relative';
-        cuota.style.overflow = 'visible';
-        cuota.style.backgroundColor = 'rgb(0, 200, 255)';
-        cuota.style.zIndex = '3';
-        
-        // Forma hexagonal exacta aplicada con múltiples métodos para máxima compatibilidad
-        const clipPathValue = 'polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%)';
-        cuota.style.clipPath = clipPathValue;
-        cuota.style.webkitClipPath = clipPathValue;
-        
-        // Asegurar que otros estilos no interfieran
-        cuota.style.borderRadius = '0'; // Deshabilitar border-radius para evitar conflictos
-        
-        // Agregar un SVG de fondo como respaldo para navegadores sin soporte de clip-path
-        const width = cuota.offsetWidth;
-        const height = cuota.offsetHeight;
-        const backgroundColor = 'rgb(0, 200, 255)';
-        
-        const svgHexagon = `<svg width="${width}" height="${height}" style="position:absolute;top:0;left:0;z-index:-1;">
-            <polygon points="${width*0.2},0 ${width*0.8},0 ${width},${height*0.5} ${width*0.8},${height} ${width*0.2},${height} 0,${height*0.5}" 
-            fill="${backgroundColor}" />
-        </svg>`;
-        
-        // Crear un contenedor temporal para el SVG
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = svgHexagon;
-        const svgElement = tempDiv.firstChild;
-        
-        // Añadir el SVG como primer hijo
-        if (cuota.firstChild) {
-            cuota.insertBefore(svgElement, cuota.firstChild);
-        } else {
-            cuota.appendChild(svgElement);
-        }
-        
-        // Asegurar que el valor de la cuota está por encima
-        const valorCuota = cuota.querySelector('.valor-cuota');
-        if (valorCuota) {
-            valorCuota.style.position = 'relative';
-            valorCuota.style.zIndex = '5';
-        }
-    });
-}
-
-// Función para restaurar los estilos originales después de la captura
-function restaurarEstilosOriginales() {
-    const cuotas = document.querySelectorAll('.cuota');
-    
-    cuotas.forEach(cuota => {
-        // Restaurar estilos originales
-        cuota.style.clipPath = cuota.dataset.originalClipPath || '';
-        cuota.style.webkitClipPath = '';
-        cuota.style.backgroundColor = cuota.dataset.originalBackground || '';
-        cuota.style.borderRadius = ''; // Restaurar border-radius
-        cuota.style.position = cuota.dataset.originalPosition || '';
-        cuota.style.zIndex = cuota.dataset.originalZIndex || '';
-        
-        // Eliminar los SVGs agregados
-        const svgs = cuota.querySelectorAll('svg');
-        svgs.forEach(svg => svg.remove());
-        
-        // Eliminar los atributos de datos
-        delete cuota.dataset.originalClipPath;
-        delete cuota.dataset.originalBackground;
-        delete cuota.dataset.originalPosition;
-        delete cuota.dataset.originalZIndex;
-    });
-}
-
 // Función para formatear el nombre de un equipo para mostrarlo en el banner
 function formatearNombreEquipo(nombre) {
     // Mapeo de nombres sin espacios a su forma correcta con espacios
@@ -1041,8 +1222,101 @@ function formatearNombreEquipo(nombre) {
         "PSV": "PSV Eindhoven",
         "ClubBrujas": "Club Brujas",
         "westham": "West Ham",
-        "newcastle": "Newcastle"
-        // Puedes agregar más equipos según sea necesario
+        "WestHam": "West Ham United",
+        "newcastle": "Newcastle",
+        "Newcastle": "Newcastle United",
+        "Arsenal": "Arsenal FC",
+        "Chelsea": "Chelsea FC",
+        "Tottenham": "Tottenham Hotspur",
+        "Liverpool": "Liverpool FC",
+        "Brighton": "Brighton & Hove Albion",
+        "Wolves": "Wolverhampton Wanderers",
+        "Everton": "Everton FC",
+        "Fulham": "Fulham FC",
+        "Brentford": "Brentford FC",
+        "CrystalPalace": "Crystal Palace",
+        "NottinghamForest": "Nottingham Forest",
+        "Bournemouth": "AFC Bournemouth",
+        "Southampton": "Southampton FC",
+        "Leicester": "Leicester City",
+        "Ipswich": "Ipswich Town",
+        // Equipos de LaLiga
+        "AthleticBilbao": "Athletic Bilbao",
+        "AtleticoMadrid": "Atlético de Madrid",
+        "CAOsasuna": "CA Osasuna",
+        "CDLeganes": "CD Leganés",
+        "CeltaDeVigo": "Celta de Vigo",
+        "DeportivoAlaves": "Deportivo Alavés",
+        "FCBarcelona": "FC Barcelona",
+        "GetafeCF": "Getafe CF",
+        "GironaFC": "Girona FC",
+        "RCDEspanyolBarcelona": "RCD Espanyol Barcelona",
+        "RCDMallorca": "RCD Mallorca",
+        "RayoVallecano": "Rayo Vallecano",
+        "RealBetisBalomp": "Real Betis Balompié",
+        "RealSociedad": "Real Sociedad",
+        "RealValladolidCF": "Real Valladolid CF",
+        "SevillaFC": "Sevilla FC",
+        "UDLasPalmas": "UD Las Palmas",
+        "ValenciaCF": "Valencia CF",
+        "VillarrealCF": "Villarreal CF",
+        // Equipos de Serie A
+        "ACMilan": "AC Milan",
+        "ACMonza": "AC Monza",
+        "ACFFiorentina": "ACF Fiorentina",
+        "ASRoma": "AS Roma",
+        "AtalantaBC": "Atalanta BC",
+        "BolognaFC1909": "Bologna FC",
+        "CagliariCalcio": "Cagliari Calcio",
+        "Como1907": "Como 1907",
+        "FCEmpoli": "FC Empoli",
+        "GenoaCFC": "Genoa CFC",
+        "HellasVerona": "Hellas Verona",
+        "InterMilan": "Inter Milan",
+        "JuventusFC": "Juventus FC",
+        "ParmaCalcio1913": "Parma Calcio",
+        "SSLazio": "SS Lazio",
+        "SSCNapoli": "SSC Napoli",
+        "TorinoFC": "Torino FC",
+        "USLecce": "US Lecce",
+        "UdineseCalcio": "Udinese Calcio",
+        "VeneziaFC": "Venezia FC",
+        // Equipos de Bundesliga
+        "BayerLeverkusen": "Bayer Leverkusen",
+        "RBLeipzig": "RB Leipzig",
+        "Wolfsburg": "VfL Wolfsburg",
+        "EintrachtFrankfurt": "Eintracht Frankfurt",
+        "BorussiaMG": "Borussia M'gladbach",
+        "Hoffenheim": "TSG Hoffenheim",
+        "Stuttgart": "VfB Stuttgart",
+        "Mainz05": "Mainz 05",
+        "Freiburg": "SC Freiburg",
+        "Augsburg": "FC Augsburg",
+        "UnionBerlin": "Union Berlin",
+        "Bremen": "Werder Bremen",
+        "Bochum": "VfL Bochum",
+        "FCHeidenheim": "1. FC Heidenheim",
+        "StPauli": "FC St. Pauli",
+        "HolsteinKiel": "Holstein Kiel",
+        // Equipos de Ligue 1
+        "AJAuxerre": "AJ Auxerre",
+        "ASMonaco": "AS Monaco",
+        "ASSaintEtienne": "AS Saint-Étienne",
+        "AngersSCO": "Angers SCO",
+        "FCNantes": "FC Nantes",
+        "FCToulouse": "FC Toulouse",
+        "LOSCLille": "LOSC Lille",
+        "LeHavreAC": "Le Havre AC",
+        "MontpellierHSC": "Montpellier HSC",
+        "OGCNice": "OGC Nice",
+        "OlympiqueLyon": "Olympique Lyon",
+        "OlympiqueMarseille": "Olympique Marseille",
+        "ParisSaintGermain": "Paris Saint-Germain",
+        "RCLens": "RC Lens",
+        "RCStrasbourgAlsace": "RC Strasbourg Alsace",
+        "StadeBrestois29": "Stade Brestois 29",
+        "StadeReims": "Stade Reims",
+        "StadeRennaisFC": "Stade Rennais FC",
     };
     
     // Verificar si es un nombre especial conocido
