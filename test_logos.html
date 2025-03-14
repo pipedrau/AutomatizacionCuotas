@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Logos Liga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .logo-container {
+            margin: 10px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: inline-block;
+            width: 200px;
+            height: 150px;
+            text-align: center;
+        }
+        .logo-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .status {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        .success {
+            color: green;
+        }
+        .failure {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test de Carga de Logos Liga</h1>
+    <div id="logos-grid">
+        <!-- Los logos se cargarán aquí dinámicamente -->
+    </div>
+
+    <script>
+        // Lista de todas las ligas con sus rutas de archivos WebP
+        const logosLiga = [
+            { name: "LaLiga", path: "logosliga/Laliga.webp" },
+            { name: "Premier", path: "logosliga/Premier.webp" },
+            { name: "SerieA", path: "logosliga/SerieA.webp" },
+            { name: "Bundesliga", path: "logosliga/Bundesliga.webp" },
+            { name: "LeagueOne", path: "logosliga/LeagueOne.webp" },
+            { name: "LigaMX", path: "logosliga/LigaMX.webp" },
+            { name: "LigaNacional", path: "logosliga/LigaNacional.webp" },
+            { name: "ChampionsLeague", path: "logosliga/ChampionsLeague.webp" },
+            { name: "EuropaLeague", path: "logosliga/EuropaLeague.webp" },
+            { name: "Concacaf", path: "logosliga/Concacaf.webp" },
+            { name: "Libertadores", path: "logosliga/Libertadores.webp" }
+        ];
+
+        const logosGrid = document.getElementById('logos-grid');
+
+        // Crear un contenedor para cada logo y probar su carga
+        logosLiga.forEach(logo => {
+            const container = document.createElement('div');
+            container.className = 'logo-container';
+            
+            const logoName = document.createElement('div');
+            logoName.className = 'logo-name';
+            logoName.textContent = logo.name;
+            container.appendChild(logoName);
+            
+            const img = new Image();
+            img.alt = logo.name;
+            img.style.maxWidth = '100%';
+            img.style.maxHeight = '100px';
+            
+            const status = document.createElement('div');
+            status.className = 'status';
+            
+            // Cuando la imagen carga correctamente
+            img.onload = function() {
+                status.className = 'status success';
+                status.textContent = '✓ Cargado correctamente';
+                container.appendChild(img);
+                container.appendChild(status);
+            };
+            
+            // Cuando hay un error al cargar la imagen
+            img.onerror = function() {
+                status.className = 'status failure';
+                status.textContent = '✗ Error al cargar';
+                container.appendChild(status);
+            };
+            
+            // Iniciar la carga de la imagen
+            img.src = logo.path;
+            
+            logosGrid.appendChild(container);
+        });
+    </script>
+</body>
+</html> 

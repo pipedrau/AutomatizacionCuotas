@@ -53,63 +53,76 @@ Este proyecto permite automatizar la creación de piezas gráficas para la casa 
 
 Intercall Tech 
 
-# Automatización de Cuotas
+# Automatización de Cuotas para Hondubet
 
-Aplicación web para la generación automatizada de imágenes con información de cuotas de apuestas deportivas para diferentes ligas y competiciones.
+Esta aplicación permite crear rápidamente imágenes para promocionar apuestas deportivas, generando gráficos profesionales con cuotas, escudos de equipos y fondos personalizados.
 
-## Características
+## Problema de CORS y solución
 
-- Generación de imágenes con diseños personalizados para partidos de fútbol
-- Soporte para múltiples ligas y competiciones (Premier League, LaLiga, Champions League, etc.)
-- Selección de escudos de equipos desde una biblioteca integrada
-- Personalización de cuotas para local, empate y visitante
-- Configuración de hora del partido
-- Visualización de nombres de equipos en formato adaptativo
-- Descarga de imágenes en alta calidad
+Si estás viendo mensajes de error como:
 
-## Uso
+```
+SecurityError: Failed to execute 'toDataURL' on 'HTMLCanvasElement': Tainted canvases may not be exported.
+```
 
-1. Selecciona el formato deseado (1, 2 o 3 enfrentamientos)
-2. Elige la liga o competición
-3. Selecciona los escudos de los equipos local y visitante
-4. Ajusta la hora del partido
-5. Personaliza las cuotas según sea necesario
-6. Haz clic en "Generar imagen" para crear la imagen
-7. Descarga la imagen generada
+o 
+
+```
+Access to image has been blocked by CORS policy
+```
+
+Esto se debe a restricciones de seguridad del navegador al abrir archivos locales directamente con `file://`. La solución es **usar el servidor local incluido** en este proyecto.
+
+## Instrucciones para usar el servidor local
+
+1. Asegúrate de tener **Node.js** instalado ([Descargar Node.js](https://nodejs.org/))
+2. Abre una terminal en la carpeta de este proyecto
+3. Instala las dependencias (solo la primera vez):
+   ```
+   npm install
+   ```
+4. Inicia el servidor:
+   ```
+   npm start
+   ```
+5. Abre en tu navegador:
+   ```
+   http://localhost:3000
+   ```
+
+## Características principales
+
+- Selección de ligas y competiciones
+- Múltiples escudos de equipos organizados por liga
+- Formatos para 1 o más enfrentamientos
+- Generación y descarga de imágenes de alta calidad
+- Compatibilidad con formatos PNG y WebP
+
+## Solución de problemas
+
+Si tienes problemas generando imágenes:
+
+1. **Usa siempre el servidor local** como se indica arriba
+2. Asegúrate de que tu navegador esté actualizado (recomendado Chrome o Firefox)
+3. Verifica que tienes conexión a internet para cargar las bibliotecas necesarias
+4. Si cambias de navegador, puede ser necesario recargar la página
+
+## Navegadores compatibles
+
+- Google Chrome (recomendado)
+- Firefox
+- Safari
+- Edge
 
 ## Estructura del proyecto
 
-### Organización modular
-
-El proyecto está organizado en módulos para facilitar el mantenimiento y la expansión de la aplicación:
-
-- **Módulo de evento**: Contiene los elementos relacionados con la información del partido
-  - `hora-partido-container`: Muestra la hora del partido
-  - `match-banner-container`: Banner con los nombres de los equipos y el "VS"
-  - `cuotas-container`: Muestra las cuotas de apuesta (local, empate, visitante)
-
-Esta estructura modular es fundamental para futuras implementaciones, como la adición de más partidos o formatos alternativos.
-
-### Archivos principales
-
-- `index.html`: Interfaz principal de la aplicación
-- `styles.css`: Estilos y diseño de la interfaz
-- `script.js`: Lógica de la aplicación
-- `escudos/`: Carpeta con los escudos de equipos organizados por liga
-- `backgrounds/`: Fondos para cada liga/competición
-- `logosliga/`: Logos de las diferentes ligas y competiciones
-
-### Especificaciones técnicas
-
-- **Dimensiones del canvas**: La relación de aspecto del canvas es siempre de 1080x1920 píxeles (ancho x alto)
-- Esta relación de aspecto debe mantenerse en todas las implementaciones y actualizaciones futuras
-
-## Tecnologías utilizadas
-
-- HTML5
-- CSS3
-- JavaScript
-- html2canvas / dom-to-image (para la generación de imágenes)
+- `index.html`: Interfaz principal
+- `script.js`: Funcionalidad JavaScript
+- `styles.css`: Estilos CSS
+- `servidor.js`: Servidor web simple para evitar problemas de CORS
+- `/escudos/`: Carpeta con todos los logos de equipos
+- `/backgrounds/`: Fondos para las imágenes
+- `/logosliga/`: Logos de las ligas y competiciones
 
 ## Desarrollado por
 

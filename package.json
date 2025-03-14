@@ -1,0 +1,12 @@
+{
+  "name": "automatizacion-cuotas",
+  "version": "1.0.0",
+  "description": "Aplicación para automatizar generación de imágenes con cuotas de apuestas",
+  "main": "servidor.js",
+  "scripts": {
+    "start": "node servidor.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+} 
