@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "backgrounds/ChampionsLeague/Bg_Champions04.webp"
         ],
         "EuropaLeague": [],
-        "Concacaf": [],
+        "Concacaf": ["backgrounds/Concacaf/Bg_Concacaf.png"],
         "Libertadores": []
     };
     
