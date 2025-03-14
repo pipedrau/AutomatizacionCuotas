@@ -233,7 +233,7 @@ button:hover {
     mix-blend-mode: lighten;
 }
 
-/* Contenedor de Fecha */
+/* Estilos para la fecha */
 .fecha-container {
     position: absolute;
     top: 587px; /* 70px + 77px + 100px + 300px + 40px */
@@ -245,12 +245,16 @@ button:hover {
 }
 
 .dia {
-    font-size: 100pt;
+    font-size: 70pt; /* Reducido al 70% del tamaño original (que era 100pt) */
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 20px;
     line-height: 1;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    height: 74px; /* Altura fija específica */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mes {
@@ -802,4 +806,20 @@ button:hover {
 /* Ocultar la hora-empate en formato 1 */
 .hora-empate {
     display: none; /* Por defecto oculto, solo visible en formato 2 */
+}
+
+/* Estilos para el checkbox de logo en blanco */
+.checkbox-container {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.checkbox-container label {
+    font-size: 14px;
+    color: #666;
 } 

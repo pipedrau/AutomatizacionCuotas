@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Premier": [],
         "LaLiga": [],
         "SerieA": ["backgrounds/SerieA/Bg_SerieA.png"],
-        "Bundesliga": [],
+        "Bundesliga": ["backgrounds/Bundesliga/Bg_Bundesliga.png"],
         "LeagueOne": [],
         "LigaMX": ["backgrounds/LigaMX/Bg_LigaMX.png"],
         "LigaNacional": [],
@@ -525,6 +525,16 @@ function configurarEventos() {
         });
     });
     
+    // Checkbox para logo en blanco
+    const logoEnBlancoCheckbox = document.getElementById('logo-blanco-checkbox');
+    logoEnBlancoCheckbox.addEventListener('change', () => {
+        // Si hay una liga seleccionada, recargar su logo con la nueva configuración
+        const ligaSelector = document.getElementById('liga-selector');
+        if (ligaSelector.value) {
+            cargarLogoLiga(ligaSelector.value);
+        }
+    });
+    
     // Botón para cambiar el fondo aleatorio
     const cambiarFondoBtn = document.getElementById('cambiar-fondo');
     cambiarFondoBtn.addEventListener('click', seleccionarFondoAleatorio);
@@ -730,6 +740,9 @@ function cargarLogoLiga(liga) {
     // Establecer un color de fondo para el contenedor que ayude con el contraste de los logos
     ligaContainer.style.backgroundColor = 'transparent';
     
+    // Verificar el estado del checkbox para logo en blanco
+    const logoEnBlanco = document.getElementById('logo-blanco-checkbox').checked;
+    
     // Buscar el logo correspondiente a la liga o competición seleccionada
     
     // Mapeo simplificado de ligas y competiciones a nombres de archivo (primero intentamos webp)
@@ -789,16 +802,21 @@ function cargarLogoLiga(liga) {
             imgLiga.style.maxWidth = '100%';
             imgLiga.style.objectFit = 'contain';
             
-            // Aplicar filtro para mostrar el logo en blanco con trazo alrededor
-            const esFormatoPNG = rutaActual.toLowerCase().endsWith('.png');
-            
-            if (esFormatoPNG) {
-                // Para PNG con posible transparencia, usar una estrategia más suave
-                imgLiga.style.filter = 'brightness(0) invert(1) drop-shadow(0 0 2px white)';
-                imgLiga.style.mixBlendMode = 'lighten';
+            // Aplicar filtro para mostrar el logo en blanco con trazo alrededor SOLO si el checkbox está marcado
+            if (logoEnBlanco) {
+                const esFormatoPNG = rutaActual.toLowerCase().endsWith('.png');
+                
+                if (esFormatoPNG) {
+                    // Para PNG con posible transparencia, usar una estrategia más suave
+                    imgLiga.style.filter = 'brightness(0) invert(1) drop-shadow(0 0 2px white)';
+                    imgLiga.style.mixBlendMode = 'lighten';
+                } else {
+                    // Para otros formatos, usar un filtro más fuerte
+                    imgLiga.style.filter = 'brightness(0) invert(1) drop-shadow(0 0 2px white)';
+                }
             } else {
-                // Para otros formatos, usar un filtro más fuerte
-                imgLiga.style.filter = 'brightness(0) invert(1) drop-shadow(0 0 2px white)';
+                // Si el checkbox no está marcado, solo aplicar un ligero contorno blanco
+                imgLiga.style.filter = 'drop-shadow(0 0 2px rgba(255,255,255,0.7))';
             }
             
             ligaContainer.appendChild(imgLiga);
