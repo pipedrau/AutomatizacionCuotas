@@ -417,21 +417,29 @@ function ajustarLayoutSegunFormato() {
     // Mostrar u ocultar eventos según el formato
     const evento1 = document.querySelector('.evento-container.evento-1');
     const evento2 = document.querySelector('.evento-container.evento-2');
+    const evento3 = document.querySelector('.evento-container.evento-3');
     
-    if (formatoActual >= 2) {
-        evento1.style.display = 'flex';
-        evento2.style.display = 'flex';
-    } else {
+    if (formatoActual === 1) {
         evento1.style.display = 'flex';
         evento2.style.display = 'none';
+        evento3.style.display = 'none';
+    } else if (formatoActual === 2) {
+        evento1.style.display = 'flex';
+        evento2.style.display = 'flex';
+        evento3.style.display = 'none';
+    } else if (formatoActual === 3) {
+        evento1.style.display = 'flex';
+        evento2.style.display = 'flex';
+        evento3.style.display = 'flex';
     }
 }
 
 // Función para cambiar entre eventos (mostrar/ocultar controles)
 function cambiarEventoActivo(numeroEvento) {
-    // Obtener todos los controles de ambos eventos
+    // Obtener todos los controles de los tres eventos
     const controlesEvento1 = document.querySelectorAll('.evento-1-control');
     const controlesEvento2 = document.querySelectorAll('.evento-2-control');
+    const controlesEvento3 = document.querySelectorAll('.evento-3-control');
     
     // Cambiar la clase activa en los botones de pestañas
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -443,9 +451,15 @@ function cambiarEventoActivo(numeroEvento) {
     if (numeroEvento === 1) {
         controlesEvento1.forEach(control => control.style.display = 'block');
         controlesEvento2.forEach(control => control.style.display = 'none');
-    } else {
+        controlesEvento3.forEach(control => control.style.display = 'none');
+    } else if (numeroEvento === 2) {
         controlesEvento1.forEach(control => control.style.display = 'none');
         controlesEvento2.forEach(control => control.style.display = 'block');
+        controlesEvento3.forEach(control => control.style.display = 'none');
+    } else if (numeroEvento === 3) {
+        controlesEvento1.forEach(control => control.style.display = 'none');
+        controlesEvento2.forEach(control => control.style.display = 'none');
+        controlesEvento3.forEach(control => control.style.display = 'block');
     }
 }
 
@@ -493,8 +507,10 @@ function mostrarNotificacion(mensaje, tipo = 'info') {
 }
 
 // Función para actualizar la fecha actual
-function actualizarFecha() {
-    const fechaActual = new Date();
+function actualizarFecha(fechaPersonalizada = null) {
+    // Usar fecha personalizada si se proporciona, de lo contrario usar la fecha actual
+    const fechaActual = fechaPersonalizada || new Date();
+    
     const diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
     const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
     
@@ -507,6 +523,11 @@ function actualizarFecha() {
     
     diaElemento.textContent = `${diaSemana} ${diaMes}`;
     mesElemento.textContent = `DE ${mes}`;
+    
+    // Si estamos actualizando con una fecha personalizada, mostrar notificación
+    if (fechaPersonalizada) {
+        mostrarNotificacion(`Fecha actualizada a ${diaSemana} ${diaMes} de ${mes}`, 'success');
+    }
 }
 
 // Función para configurar los eventos
@@ -723,6 +744,32 @@ function configurarEventos() {
         actualizarHoraPartidoEvento2(horaPartidoInput2.value);
     });
     
+    // Evento para el selector de fecha
+    const fechaSelector = document.getElementById('fecha-selector');
+    fechaSelector.addEventListener('change', () => {
+        if (fechaSelector.value) {
+            const fechaSeleccionada = new Date(fechaSelector.value);
+            // Asegurarse de corregir la zona horaria
+            fechaSeleccionada.setMinutes(fechaSeleccionada.getMinutes() + fechaSeleccionada.getTimezoneOffset());
+            actualizarFecha(fechaSeleccionada);
+        }
+    });
+    
+    // Botón para restablecer la fecha actual
+    const resetFechaBtn = document.getElementById('reset-fecha-btn');
+    resetFechaBtn.addEventListener('click', () => {
+        // Limpiar el input de fecha
+        fechaSelector.value = '';
+        // Actualizar con la fecha actual
+        actualizarFecha();
+        mostrarNotificacion('Fecha restablecida a hoy', 'info');
+    });
+    
+    // Inicializar el valor del selector de fecha con la fecha actual
+    const hoy = new Date();
+    const formatoFecha = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
+    fechaSelector.value = formatoFecha;
+    
     // Generar imagen capturando EXACTAMENTE lo que se ve en pantalla
     const generarBtn = document.getElementById('generar-btn');
     generarBtn.addEventListener('click', generarImagen);
@@ -730,6 +777,77 @@ function configurarEventos() {
     // Descargar imagen
     const descargarBtn = document.getElementById('descargar-btn');
     descargarBtn.addEventListener('click', descargarImagen);
+    
+    // Cambiar escudo local (Evento 3)
+    const escudo1Selector3 = document.getElementById('escudo1-selector-3');
+    escudo1Selector3.addEventListener('change', (e) => {
+        const escudoPath = e.target.value;
+        
+        if (escudoPath) {
+            // Actualizar el nombre del equipo local
+            const nombreEquipo = escudoPath.split('/').pop().replace(/\.[^/.]+$/, "");
+            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
+            
+            // Solo actualizamos el nombre en el banner del partido
+            const nombreLocalBanner = document.querySelector('.local-banner-3');
+            if (nombreLocalBanner) {
+                nombreLocalBanner.textContent = nombreFormateado;
+            }
+        } else {
+            // Si no hay escudo seleccionado, ponemos un texto por defecto
+            const nombreLocalBanner = document.querySelector('.local-banner-3');
+            if (nombreLocalBanner) {
+                nombreLocalBanner.textContent = 'Local';
+            }
+        }
+    });
+    
+    // Cambiar escudo visitante (Evento 3)
+    const escudo2Selector3 = document.getElementById('escudo2-selector-3');
+    escudo2Selector3.addEventListener('change', (e) => {
+        const escudoPath = e.target.value;
+        
+        if (escudoPath) {
+            // Actualizar el nombre del equipo visitante
+            const nombreEquipo = escudoPath.split('/').pop().replace(/\.[^/.]+$/, "");
+            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
+            
+            // Solo actualizamos el nombre en el banner del partido
+            const nombreVisitanteBanner = document.querySelector('.visitante-banner-3');
+            if (nombreVisitanteBanner) {
+                nombreVisitanteBanner.textContent = nombreFormateado;
+            }
+        } else {
+            // Si no hay escudo seleccionado, ponemos un texto por defecto
+            const nombreVisitanteBanner = document.querySelector('.visitante-banner-3');
+            if (nombreVisitanteBanner) {
+                nombreVisitanteBanner.textContent = 'Visitante';
+            }
+        }
+    });
+    
+    // Eventos para actualizar las cuotas en tiempo real (Evento 3)
+    const cuotaLocalInput3 = document.getElementById('cuota-local-3');
+    const cuotaEmpateInput3 = document.getElementById('cuota-empate-3');
+    const cuotaVisitanteInput3 = document.getElementById('cuota-visitante-3');
+    
+    cuotaLocalInput3.addEventListener('input', () => {
+        actualizarCuotaEvento3('local', cuotaLocalInput3.value);
+    });
+    
+    cuotaEmpateInput3.addEventListener('input', () => {
+        actualizarCuotaEvento3('empate', cuotaEmpateInput3.value);
+    });
+    
+    cuotaVisitanteInput3.addEventListener('input', () => {
+        actualizarCuotaEvento3('visitante', cuotaVisitanteInput3.value);
+    });
+    
+    // Evento para actualizar la hora del partido (Evento 3)
+    const horaPartidoInput3 = document.getElementById('hora-partido-input-3');
+    horaPartidoInput3.addEventListener('change', () => {
+        actualizarHoraPartidoEvento3(horaPartidoInput3.value);
+    });
 }
 
 // Función para cargar el logo de liga correspondiente
@@ -1380,12 +1498,16 @@ function cargarEscudos(liga) {
     const escudo2Select = document.getElementById('escudo2-selector');
     const escudo1Select2 = document.getElementById('escudo1-selector-2');
     const escudo2Select2 = document.getElementById('escudo2-selector-2');
+    const escudo1Select3 = document.getElementById('escudo1-selector-3');
+    const escudo2Select3 = document.getElementById('escudo2-selector-3');
     
     // Mantenemos la opción por defecto
     escudo1Select.innerHTML = '<option value="">Seleccionar...</option>';
     escudo2Select.innerHTML = '<option value="">Seleccionar...</option>';
     escudo1Select2.innerHTML = '<option value="">Seleccionar...</option>';
     escudo2Select2.innerHTML = '<option value="">Seleccionar...</option>';
+    escudo1Select3.innerHTML = '<option value="">Seleccionar...</option>';
+    escudo2Select3.innerHTML = '<option value="">Seleccionar...</option>';
     
     // Verificar si lo seleccionado es una competición internacional
     const esCompeticion = ["ChampionsLeague", "EuropaLeague", "Concacaf", "Libertadores"].includes(liga);
@@ -1450,10 +1572,14 @@ function cargarEscudos(liga) {
                 const optgroup2 = document.createElement('optgroup');
                 const optgroup3 = document.createElement('optgroup');
                 const optgroup4 = document.createElement('optgroup');
+                const optgroup5 = document.createElement('optgroup');
+                const optgroup6 = document.createElement('optgroup');
                 optgroup1.label = formatearNombreLiga(nombreLiga);
                 optgroup2.label = formatearNombreLiga(nombreLiga);
                 optgroup3.label = formatearNombreLiga(nombreLiga);
                 optgroup4.label = formatearNombreLiga(nombreLiga);
+                optgroup5.label = formatearNombreLiga(nombreLiga);
+                optgroup6.label = formatearNombreLiga(nombreLiga);
                 
                 // Añadir los escudos de esta liga al grupo
                 escudosPorLiga[nombreLiga].forEach(rutaEscudo => {
@@ -1483,6 +1609,18 @@ function cargarEscudos(liga) {
                     option4.value = rutaEscudo;
                     option4.textContent = nombreFormateado.replace('\n', ' '); // Reemplazamos el salto de línea por espacio en el selector
                     optgroup4.appendChild(option4);
+                    
+                    // Opción para selector local (Evento 3)
+                    const option5 = document.createElement('option');
+                    option5.value = rutaEscudo;
+                    option5.textContent = nombreFormateado.replace('\n', ' '); // Reemplazamos el salto de línea por espacio en el selector
+                    optgroup5.appendChild(option5);
+                    
+                    // Opción para selector visitante (Evento 3)
+                    const option6 = document.createElement('option');
+                    option6.value = rutaEscudo;
+                    option6.textContent = nombreFormateado.replace('\n', ' '); // Reemplazamos el salto de línea por espacio en el selector
+                    optgroup6.appendChild(option6);
                 });
                 
                 // Añadir los grupos a los selectores
@@ -1490,6 +1628,8 @@ function cargarEscudos(liga) {
                 escudo2Select.appendChild(optgroup2);
                 escudo1Select2.appendChild(optgroup3);
                 escudo2Select2.appendChild(optgroup4);
+                escudo1Select3.appendChild(optgroup5);
+                escudo2Select3.appendChild(optgroup6);
             }
             
             mostrarNotificacion(`Se han cargado ${todosLosEscudos.length} escudos para ${formatearNombreLiga(liga)}`, 'success');
@@ -1534,6 +1674,18 @@ function cargarEscudos(liga) {
                 option4.value = rutaEscudo;
                 option4.textContent = nombreFormateado.replace('\n', ' '); // Reemplazamos el salto de línea por espacio en el selector
                 escudo2Select2.appendChild(option4);
+                
+                // Añadir opción al selector de escudo local (Evento 3)
+                const option5 = document.createElement('option');
+                option5.value = rutaEscudo;
+                option5.textContent = nombreFormateado.replace('\n', ' '); // Reemplazamos el salto de línea por espacio en el selector
+                escudo1Select3.appendChild(option5);
+                
+                // Añadir opción al selector de escudo visitante (Evento 3)
+                const option6 = document.createElement('option');
+                option6.value = rutaEscudo;
+                option6.textContent = nombreFormateado.replace('\n', ' '); // Reemplazamos el salto de línea por espacio en el selector
+                escudo2Select3.appendChild(option6);
             });
             
             mostrarNotificacion(`Se han cargado ${escudos[liga].length} escudos de ${formatearNombreLiga(liga)}`, 'success');
@@ -1555,12 +1707,16 @@ function inicializarNombresBanner() {
     const nombreVisitanteBanner = document.querySelector('.visitante-banner');
     const nombreLocalBanner2 = document.querySelector('.local-banner-2');
     const nombreVisitanteBanner2 = document.querySelector('.visitante-banner-2');
+    const nombreLocalBanner3 = document.querySelector('.local-banner-3');
+    const nombreVisitanteBanner3 = document.querySelector('.visitante-banner-3');
     
     // Verificar si hay escudos seleccionados
     const escudoLocalSelector = document.getElementById('escudo1-selector');
     const escudoVisitanteSelector = document.getElementById('escudo2-selector');
     const escudoLocalSelector2 = document.getElementById('escudo1-selector-2');
     const escudoVisitanteSelector2 = document.getElementById('escudo2-selector-2');
+    const escudoLocalSelector3 = document.getElementById('escudo1-selector-3');
+    const escudoVisitanteSelector3 = document.getElementById('escudo2-selector-3');
     
     // Inicializar el nombre del equipo local (Evento 1)
     if (nombreLocalBanner) {
@@ -1613,4 +1769,75 @@ function inicializarNombresBanner() {
             nombreVisitanteBanner2.textContent = 'Visitante';
         }
     }
+    
+    // Inicializar el nombre del equipo local (Evento 3)
+    if (nombreLocalBanner3) {
+        if (escudoLocalSelector3 && escudoLocalSelector3.value) {
+            // Si hay un escudo seleccionado, usar su nombre
+            const rutaEscudo = escudoLocalSelector3.value;
+            const nombreEquipo = rutaEscudo.split('/').pop().replace(/\.[^/.]+$/, "");
+            nombreLocalBanner3.textContent = formatearNombreEquipo(nombreEquipo);
+        } else {
+            // Si no hay escudo seleccionado, usar valor por defecto
+            nombreLocalBanner3.textContent = 'Local';
+        }
+    }
+    
+    // Inicializar el nombre del equipo visitante (Evento 3)
+    if (nombreVisitanteBanner3) {
+        if (escudoVisitanteSelector3 && escudoVisitanteSelector3.value) {
+            // Si hay un escudo seleccionado, usar su nombre
+            const rutaEscudo = escudoVisitanteSelector3.value;
+            const nombreEquipo = rutaEscudo.split('/').pop().replace(/\.[^/.]+$/, "");
+            nombreVisitanteBanner3.textContent = formatearNombreEquipo(nombreEquipo);
+        } else {
+            // Si no hay escudo seleccionado, usar valor por defecto
+            nombreVisitanteBanner3.textContent = 'Visitante';
+        }
+    }
+}
+
+// Función para actualizar los valores de las cuotas (Evento 3)
+function actualizarCuotaEvento3(tipo, valor) {
+    // Asegurarse de que el valor sea un número válido
+    const valorNumerico = parseFloat(valor);
+    if (isNaN(valorNumerico) || valorNumerico < 1) {
+        return;
+    }
+    
+    // Formatear el valor a dos decimales
+    const valorFormateado = valorNumerico.toFixed(2);
+    
+    // Actualizar el valor en la interfaz del evento 3
+    const valorCuotaElement = document.querySelector(`.evento-3 .cuota-${tipo} .valor-cuota`);
+    if (valorCuotaElement) {
+        valorCuotaElement.textContent = valorFormateado;
+    }
+}
+
+// Función para actualizar la hora del partido (Evento 3)
+function actualizarHoraPartidoEvento3(hora) {
+    // Si no hay hora, no hacemos nada
+    if (!hora) return;
+    
+    // Extraer las horas y minutos
+    const [horas, minutos] = hora.split(':');
+    
+    // Formatear la hora para mostrarla
+    const horaFormateada = `${horas}:${minutos}`;
+    
+    // Actualizar la hora en la interfaz (contenedor original)
+    const horaPartidoElement = document.querySelector('.evento-3 .hora-partido');
+    if (horaPartidoElement) {
+        horaPartidoElement.textContent = horaFormateada;
+    }
+    
+    // Actualizar la hora en el nuevo elemento hora-empate
+    const horaEmpateElement = document.querySelector('.evento-3 .hora-empate');
+    if (horaEmpateElement) {
+        horaEmpateElement.textContent = horaFormateada;
+    }
+    
+    // Mostrar una notificación
+    mostrarNotificacion(`Hora del partido 3 actualizada a ${horaFormateada}`, 'success');
 } 

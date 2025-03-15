@@ -822,4 +822,102 @@ button:hover {
 .checkbox-container label {
     font-size: 14px;
     color: #666;
+}
+
+/* Estilos para el selector de fecha */
+.fecha-control-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.small-btn {
+    padding: 5px 10px;
+    background-color: #6b3fa0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.small-btn:hover {
+    background-color: #8b5cc7;
+}
+
+/* Posicionamiento específico para cada evento en el formato de 3 enfrentamientos */
+.formato-3 .evento-container {
+    transform: scale(0.8); /* Reducir todos los componentes al 80% */
+    transform-origin: center top; /* Reducir desde el centro-superior */
+}
+
+.formato-3 .evento-container.evento-1 {
+    top: 800px; /* Bajado 50px más desde 750px */
+}
+
+.formato-3 .evento-container.evento-2 {
+    top: 1120px; /* Bajado 50px más desde 1070px */
+    display: flex;
+}
+
+.formato-3 .evento-container.evento-3 {
+    top: 1440px; /* Bajado 50px más desde 1390px */
+    display: flex;
+}
+
+/* Ajustes adicionales para el formato 3 */
+.formato-3 .escudos-container {
+    display: none; /* Ocultar escudos grandes en formato 3 */
+}
+
+.formato-3 .texto-empate {
+    display: none; /* Ocultar la palabra EMPATE en el formato 3 */
+}
+
+.formato-3 .hora-partido-container {
+    display: none; /* Ocultar el contenedor de hora original en el formato 3 */
+}
+
+.formato-3 .hora-empate {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 30pt;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    z-index: 4;
+    display: block; /* Mostrar la hora en lugar de EMPATE en formato 3 */
+}
+
+/* Ajustes para que los elementos dentro de cada evento se escalen uniformemente */
+.formato-3 .match-banner {
+    width: 850px;
+    height: 120px;
+}
+
+.formato-3 .match-banner .team {
+    font-size: 36px; /* Mantener el tamaño de fuente ya que el contenedor completo se escala */
+}
+
+.formato-3 .match-banner .vs-text {
+    font-size: 60px; /* Mantener el tamaño de texto ya que el contenedor completo se escala */
+}
+
+.formato-3 .cuotas-container {
+    width: 820px;
+    height: 190px;
+}
+
+.formato-3 .cuota {
+    width: 290px;
+    height: 120px;
+}
+
+.formato-3 .valor-cuota {
+    font-size: 64pt; /* Mantener el tamaño de fuente ya que el contenedor completo se escala */
 } 
