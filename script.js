@@ -578,6 +578,7 @@ function configurarEventos() {
         escudoLocalContainer.innerHTML = '';
         
         if (escudoPath) {
+            // Añadir el escudo grande para el formato 1
             const imgEscudo = document.createElement('img');
             imgEscudo.src = escudoPath;
             imgEscudo.alt = 'Escudo Local';
@@ -596,16 +597,35 @@ function configurarEventos() {
             const nombreEquipo = escudoPath.split('/').pop().replace(/\.[^/.]+$/, "");
             const nombreFormateado = formatearNombreEquipo(nombreEquipo);
             
-            // Solo actualizamos el nombre en el banner del partido
+            // Actualizar el mini-escudo local del evento 1
+            const miniEscudoLocal = document.querySelector('.local-banner .mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = escudoPath;
+                miniEscudoLocal.alt = nombreFormateado;
+            }
+            
+            // Actualizar nombre en banner
             const nombreLocalBanner = document.querySelector('.local-banner');
             if (nombreLocalBanner) {
-                nombreLocalBanner.textContent = nombreFormateado;
+                const nombreTexto = nombreLocalBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = nombreFormateado;
+                }
             }
         } else {
-            // Si no hay escudo seleccionado, ponemos un texto por defecto
+            // Si no hay escudo seleccionado, esconder el mini-escudo y poner texto por defecto
+            const miniEscudoLocal = document.querySelector('.local-banner .mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = '';
+            }
+            
+            // Actualizar nombre en banner
             const nombreLocalBanner = document.querySelector('.local-banner');
             if (nombreLocalBanner) {
-                nombreLocalBanner.textContent = 'Local';
+                const nombreTexto = nombreLocalBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = 'Local';
+                }
             }
         }
     });
@@ -618,6 +638,7 @@ function configurarEventos() {
         escudoVisitanteContainer.innerHTML = '';
         
         if (escudoPath) {
+            // Añadir el escudo grande para el formato 1
             const imgEscudo = document.createElement('img');
             imgEscudo.src = escudoPath;
             imgEscudo.alt = 'Escudo Visitante';
@@ -636,16 +657,35 @@ function configurarEventos() {
             const nombreEquipo = escudoPath.split('/').pop().replace(/\.[^/.]+$/, "");
             const nombreFormateado = formatearNombreEquipo(nombreEquipo);
             
-            // Solo actualizamos el nombre en el banner del partido
+            // Actualizar el mini-escudo visitante del evento 1
+            const miniEscudoVisitante = document.querySelector('.visitante-banner .mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = escudoPath;
+                miniEscudoVisitante.alt = nombreFormateado;
+            }
+            
+            // Actualizar nombre en banner
             const nombreVisitanteBanner = document.querySelector('.visitante-banner');
             if (nombreVisitanteBanner) {
-                nombreVisitanteBanner.textContent = nombreFormateado;
+                const nombreTexto = nombreVisitanteBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = nombreFormateado;
+                }
             }
         } else {
-            // Si no hay escudo seleccionado, ponemos un texto por defecto
+            // Si no hay escudo seleccionado, esconder el mini-escudo y poner texto por defecto
+            const miniEscudoVisitante = document.querySelector('.visitante-banner .mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = '';
+            }
+            
+            // Actualizar nombre en banner
             const nombreVisitanteBanner = document.querySelector('.visitante-banner');
             if (nombreVisitanteBanner) {
-                nombreVisitanteBanner.textContent = 'Visitante';
+                const nombreTexto = nombreVisitanteBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = 'Visitante';
+                }
             }
         }
     });
@@ -660,16 +700,35 @@ function configurarEventos() {
             const nombreEquipo = escudoPath.split('/').pop().replace(/\.[^/.]+$/, "");
             const nombreFormateado = formatearNombreEquipo(nombreEquipo);
             
-            // Solo actualizamos el nombre en el banner del partido
+            // Actualizar el mini-escudo local del evento 2
+            const miniEscudoLocal = document.querySelector('.local-banner-2 .mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = escudoPath;
+                miniEscudoLocal.alt = nombreFormateado;
+            }
+            
+            // Actualizar nombre en banner
             const nombreLocalBanner = document.querySelector('.local-banner-2');
             if (nombreLocalBanner) {
-                nombreLocalBanner.textContent = nombreFormateado;
+                const nombreTexto = nombreLocalBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = nombreFormateado;
+                }
             }
         } else {
-            // Si no hay escudo seleccionado, ponemos un texto por defecto
+            // Si no hay escudo seleccionado, esconder el mini-escudo y poner texto por defecto
+            const miniEscudoLocal = document.querySelector('.local-banner-2 .mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = '';
+            }
+            
+            // Actualizar nombre en banner
             const nombreLocalBanner = document.querySelector('.local-banner-2');
             if (nombreLocalBanner) {
-                nombreLocalBanner.textContent = 'Local';
+                const nombreTexto = nombreLocalBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = 'Local';
+                }
             }
         }
     });
@@ -684,16 +743,121 @@ function configurarEventos() {
             const nombreEquipo = escudoPath.split('/').pop().replace(/\.[^/.]+$/, "");
             const nombreFormateado = formatearNombreEquipo(nombreEquipo);
             
-            // Solo actualizamos el nombre en el banner del partido
+            // Actualizar el mini-escudo visitante del evento 2
+            const miniEscudoVisitante = document.querySelector('.visitante-banner-2 .mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = escudoPath;
+                miniEscudoVisitante.alt = nombreFormateado;
+            }
+            
+            // Actualizar nombre en banner
             const nombreVisitanteBanner = document.querySelector('.visitante-banner-2');
             if (nombreVisitanteBanner) {
-                nombreVisitanteBanner.textContent = nombreFormateado;
+                const nombreTexto = nombreVisitanteBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = nombreFormateado;
+                }
             }
         } else {
-            // Si no hay escudo seleccionado, ponemos un texto por defecto
+            // Si no hay escudo seleccionado, esconder el mini-escudo y poner texto por defecto
+            const miniEscudoVisitante = document.querySelector('.visitante-banner-2 .mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = '';
+            }
+            
+            // Actualizar nombre en banner
             const nombreVisitanteBanner = document.querySelector('.visitante-banner-2');
             if (nombreVisitanteBanner) {
-                nombreVisitanteBanner.textContent = 'Visitante';
+                const nombreTexto = nombreVisitanteBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = 'Visitante';
+                }
+            }
+        }
+    });
+    
+    // Cambiar escudo local (Evento 3)
+    const escudo1Selector3 = document.getElementById('escudo1-selector-3');
+    escudo1Selector3.addEventListener('change', (e) => {
+        const escudoPath = e.target.value;
+        
+        if (escudoPath) {
+            // Actualizar el nombre del equipo local
+            const nombreEquipo = escudoPath.split('/').pop().replace(/\.[^/.]+$/, "");
+            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
+            
+            // Actualizar el mini-escudo local del evento 3
+            const miniEscudoLocal = document.querySelector('.local-banner-3 .mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = escudoPath;
+                miniEscudoLocal.alt = nombreFormateado;
+            }
+            
+            // Solo actualizamos el nombre en el banner del partido
+            const nombreLocalBanner = document.querySelector('.local-banner-3');
+            if (nombreLocalBanner) {
+                const nombreTexto = nombreLocalBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = nombreFormateado;
+                }
+            }
+        } else {
+            // Si no hay escudo seleccionado, esconder el mini-escudo y poner texto por defecto
+            const miniEscudoLocal = document.querySelector('.local-banner-3 .mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = '';
+            }
+            
+            // Actualizar nombre en banner
+            const nombreLocalBanner = document.querySelector('.local-banner-3');
+            if (nombreLocalBanner) {
+                const nombreTexto = nombreLocalBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = 'Local';
+                }
+            }
+        }
+    });
+    
+    // Cambiar escudo visitante (Evento 3)
+    const escudo2Selector3 = document.getElementById('escudo2-selector-3');
+    escudo2Selector3.addEventListener('change', (e) => {
+        const escudoPath = e.target.value;
+        
+        if (escudoPath) {
+            // Actualizar el nombre del equipo visitante
+            const nombreEquipo = escudoPath.split('/').pop().replace(/\.[^/.]+$/, "");
+            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
+            
+            // Actualizar el mini-escudo visitante del evento 3
+            const miniEscudoVisitante = document.querySelector('.visitante-banner-3 .mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = escudoPath;
+                miniEscudoVisitante.alt = nombreFormateado;
+            }
+            
+            // Solo actualizamos el nombre en el banner del partido
+            const nombreVisitanteBanner = document.querySelector('.visitante-banner-3');
+            if (nombreVisitanteBanner) {
+                const nombreTexto = nombreVisitanteBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = nombreFormateado;
+                }
+            }
+        } else {
+            // Si no hay escudo seleccionado, esconder el mini-escudo y poner texto por defecto
+            const miniEscudoVisitante = document.querySelector('.visitante-banner-3 .mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = '';
+            }
+            
+            // Actualizar nombre en banner
+            const nombreVisitanteBanner = document.querySelector('.visitante-banner-3');
+            if (nombreVisitanteBanner) {
+                const nombreTexto = nombreVisitanteBanner.querySelector('.nombre-equipo-texto');
+                if (nombreTexto) {
+                    nombreTexto.textContent = 'Visitante';
+                }
             }
         }
     });
@@ -777,54 +941,6 @@ function configurarEventos() {
     // Descargar imagen
     const descargarBtn = document.getElementById('descargar-btn');
     descargarBtn.addEventListener('click', descargarImagen);
-    
-    // Cambiar escudo local (Evento 3)
-    const escudo1Selector3 = document.getElementById('escudo1-selector-3');
-    escudo1Selector3.addEventListener('change', (e) => {
-        const escudoPath = e.target.value;
-        
-        if (escudoPath) {
-            // Actualizar el nombre del equipo local
-            const nombreEquipo = escudoPath.split('/').pop().replace(/\.[^/.]+$/, "");
-            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
-            
-            // Solo actualizamos el nombre en el banner del partido
-            const nombreLocalBanner = document.querySelector('.local-banner-3');
-            if (nombreLocalBanner) {
-                nombreLocalBanner.textContent = nombreFormateado;
-            }
-        } else {
-            // Si no hay escudo seleccionado, ponemos un texto por defecto
-            const nombreLocalBanner = document.querySelector('.local-banner-3');
-            if (nombreLocalBanner) {
-                nombreLocalBanner.textContent = 'Local';
-            }
-        }
-    });
-    
-    // Cambiar escudo visitante (Evento 3)
-    const escudo2Selector3 = document.getElementById('escudo2-selector-3');
-    escudo2Selector3.addEventListener('change', (e) => {
-        const escudoPath = e.target.value;
-        
-        if (escudoPath) {
-            // Actualizar el nombre del equipo visitante
-            const nombreEquipo = escudoPath.split('/').pop().replace(/\.[^/.]+$/, "");
-            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
-            
-            // Solo actualizamos el nombre en el banner del partido
-            const nombreVisitanteBanner = document.querySelector('.visitante-banner-3');
-            if (nombreVisitanteBanner) {
-                nombreVisitanteBanner.textContent = nombreFormateado;
-            }
-        } else {
-            // Si no hay escudo seleccionado, ponemos un texto por defecto
-            const nombreVisitanteBanner = document.querySelector('.visitante-banner-3');
-            if (nombreVisitanteBanner) {
-                nombreVisitanteBanner.textContent = 'Visitante';
-            }
-        }
-    });
     
     // Eventos para actualizar las cuotas en tiempo real (Evento 3)
     const cuotaLocalInput3 = document.getElementById('cuota-local-3');
@@ -1724,10 +1840,32 @@ function inicializarNombresBanner() {
             // Si hay un escudo seleccionado, usar su nombre
             const rutaEscudo = escudoLocalSelector.value;
             const nombreEquipo = rutaEscudo.split('/').pop().replace(/\.[^/.]+$/, "");
-            nombreLocalBanner.textContent = formatearNombreEquipo(nombreEquipo);
+            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
+            
+            // Actualizar nombre
+            const nombreTexto = nombreLocalBanner.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = nombreFormateado;
+            }
+            
+            // Actualizar mini-escudo
+            const miniEscudoLocal = nombreLocalBanner.querySelector('.mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = rutaEscudo;
+                miniEscudoLocal.alt = nombreFormateado;
+            }
         } else {
             // Si no hay escudo seleccionado, usar valor por defecto
-            nombreLocalBanner.textContent = 'Local';
+            const nombreTexto = nombreLocalBanner.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = 'Local';
+            }
+            
+            // Limpiar mini-escudo
+            const miniEscudoLocal = nombreLocalBanner.querySelector('.mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = '';
+            }
         }
     }
     
@@ -1737,10 +1875,32 @@ function inicializarNombresBanner() {
             // Si hay un escudo seleccionado, usar su nombre
             const rutaEscudo = escudoVisitanteSelector.value;
             const nombreEquipo = rutaEscudo.split('/').pop().replace(/\.[^/.]+$/, "");
-            nombreVisitanteBanner.textContent = formatearNombreEquipo(nombreEquipo);
+            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
+            
+            // Actualizar nombre
+            const nombreTexto = nombreVisitanteBanner.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = nombreFormateado;
+            }
+            
+            // Actualizar mini-escudo
+            const miniEscudoVisitante = nombreVisitanteBanner.querySelector('.mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = rutaEscudo;
+                miniEscudoVisitante.alt = nombreFormateado;
+            }
         } else {
             // Si no hay escudo seleccionado, usar valor por defecto
-            nombreVisitanteBanner.textContent = 'Visitante';
+            const nombreTexto = nombreVisitanteBanner.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = 'Visitante';
+            }
+            
+            // Limpiar mini-escudo
+            const miniEscudoVisitante = nombreVisitanteBanner.querySelector('.mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = '';
+            }
         }
     }
     
@@ -1750,10 +1910,32 @@ function inicializarNombresBanner() {
             // Si hay un escudo seleccionado, usar su nombre
             const rutaEscudo = escudoLocalSelector2.value;
             const nombreEquipo = rutaEscudo.split('/').pop().replace(/\.[^/.]+$/, "");
-            nombreLocalBanner2.textContent = formatearNombreEquipo(nombreEquipo);
+            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
+            
+            // Actualizar nombre
+            const nombreTexto = nombreLocalBanner2.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = nombreFormateado;
+            }
+            
+            // Actualizar mini-escudo
+            const miniEscudoLocal = nombreLocalBanner2.querySelector('.mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = rutaEscudo;
+                miniEscudoLocal.alt = nombreFormateado;
+            }
         } else {
             // Si no hay escudo seleccionado, usar valor por defecto
-            nombreLocalBanner2.textContent = 'Local';
+            const nombreTexto = nombreLocalBanner2.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = 'Local';
+            }
+            
+            // Limpiar mini-escudo
+            const miniEscudoLocal = nombreLocalBanner2.querySelector('.mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = '';
+            }
         }
     }
     
@@ -1763,10 +1945,32 @@ function inicializarNombresBanner() {
             // Si hay un escudo seleccionado, usar su nombre
             const rutaEscudo = escudoVisitanteSelector2.value;
             const nombreEquipo = rutaEscudo.split('/').pop().replace(/\.[^/.]+$/, "");
-            nombreVisitanteBanner2.textContent = formatearNombreEquipo(nombreEquipo);
+            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
+            
+            // Actualizar nombre
+            const nombreTexto = nombreVisitanteBanner2.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = nombreFormateado;
+            }
+            
+            // Actualizar mini-escudo
+            const miniEscudoVisitante = nombreVisitanteBanner2.querySelector('.mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = rutaEscudo;
+                miniEscudoVisitante.alt = nombreFormateado;
+            }
         } else {
             // Si no hay escudo seleccionado, usar valor por defecto
-            nombreVisitanteBanner2.textContent = 'Visitante';
+            const nombreTexto = nombreVisitanteBanner2.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = 'Visitante';
+            }
+            
+            // Limpiar mini-escudo
+            const miniEscudoVisitante = nombreVisitanteBanner2.querySelector('.mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = '';
+            }
         }
     }
     
@@ -1776,10 +1980,32 @@ function inicializarNombresBanner() {
             // Si hay un escudo seleccionado, usar su nombre
             const rutaEscudo = escudoLocalSelector3.value;
             const nombreEquipo = rutaEscudo.split('/').pop().replace(/\.[^/.]+$/, "");
-            nombreLocalBanner3.textContent = formatearNombreEquipo(nombreEquipo);
+            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
+            
+            // Actualizar nombre
+            const nombreTexto = nombreLocalBanner3.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = nombreFormateado;
+            }
+            
+            // Actualizar mini-escudo
+            const miniEscudoLocal = nombreLocalBanner3.querySelector('.mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = rutaEscudo;
+                miniEscudoLocal.alt = nombreFormateado;
+            }
         } else {
             // Si no hay escudo seleccionado, usar valor por defecto
-            nombreLocalBanner3.textContent = 'Local';
+            const nombreTexto = nombreLocalBanner3.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = 'Local';
+            }
+            
+            // Limpiar mini-escudo
+            const miniEscudoLocal = nombreLocalBanner3.querySelector('.mini-escudo-local');
+            if (miniEscudoLocal) {
+                miniEscudoLocal.src = '';
+            }
         }
     }
     
@@ -1789,10 +2015,32 @@ function inicializarNombresBanner() {
             // Si hay un escudo seleccionado, usar su nombre
             const rutaEscudo = escudoVisitanteSelector3.value;
             const nombreEquipo = rutaEscudo.split('/').pop().replace(/\.[^/.]+$/, "");
-            nombreVisitanteBanner3.textContent = formatearNombreEquipo(nombreEquipo);
+            const nombreFormateado = formatearNombreEquipo(nombreEquipo);
+            
+            // Actualizar nombre
+            const nombreTexto = nombreVisitanteBanner3.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = nombreFormateado;
+            }
+            
+            // Actualizar mini-escudo
+            const miniEscudoVisitante = nombreVisitanteBanner3.querySelector('.mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = rutaEscudo;
+                miniEscudoVisitante.alt = nombreFormateado;
+            }
         } else {
             // Si no hay escudo seleccionado, usar valor por defecto
-            nombreVisitanteBanner3.textContent = 'Visitante';
+            const nombreTexto = nombreVisitanteBanner3.querySelector('.nombre-equipo-texto');
+            if (nombreTexto) {
+                nombreTexto.textContent = 'Visitante';
+            }
+            
+            // Limpiar mini-escudo
+            const miniEscudoVisitante = nombreVisitanteBanner3.querySelector('.mini-escudo-visitante');
+            if (miniEscudoVisitante) {
+                miniEscudoVisitante.src = '';
+            }
         }
     }
 }

@@ -920,4 +920,97 @@ button:hover {
 
 .formato-3 .valor-cuota {
     font-size: 64pt; /* Mantener el tamaño de fuente ya que el contenedor completo se escala */
+}
+
+/* Estilos para mini-escudos en formatos 2 y 3 */
+.mini-escudo {
+    height: 2em; /* Altura relativa al texto, pero un poco más grande */
+    width: auto;
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Centrar verticalmente */
+    transform: translateY(-50%); /* Centrar verticalmente */
+    display: none; /* Por defecto oculto */
+    z-index: 3; /* Asegurar que esté sobre otros elementos */
+}
+
+/* Posiciones específicas para escudos locales y visitantes */
+.mini-escudo-local {
+    left: 10px; /* Distancia fija desde el extremo izquierdo */
+}
+
+.mini-escudo-visitante {
+    right: 10px; /* Distancia fija desde el extremo derecho */
+}
+
+/* En formato 1 escondemos los mini-escudos */
+.formato-1 .mini-escudo {
+    display: none !important;
+}
+
+/* En formatos 2 y 3 mostramos los mini-escudos */
+.formato-2 .mini-escudo,
+.formato-3 .mini-escudo {
+    display: block !important;
+}
+
+/* Ajustes para los contenedores de nombres de equipos */
+.team {
+    position: relative; /* Para posicionamiento de elementos internos */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar el texto por defecto */
+}
+
+/* Formato 1: Normal centrado sin mini-escudos */
+.formato-1 .team {
+    padding: 0 10px;
+}
+
+/* Formato 2 y 3: Ajustes para acomodar mini-escudos */
+.formato-2 .team-left,
+.formato-3 .team-left {
+    padding-left: 70px; /* Aumentado de 55px a 70px para más espacio entre escudo y nombre */
+    padding-right: 10px;
+}
+
+.formato-2 .team-right,
+.formato-3 .team-right {
+    padding-right: 70px; /* Aumentado de 55px a 70px para más espacio entre escudo y nombre */
+    padding-left: 10px;
+}
+
+/* Centrar el texto del nombre independientemente */
+.nombre-equipo-texto {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 1.1;
+    vertical-align: middle;
+    /* Permitir múltiples líneas */
+    white-space: normal;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Asegurar que los escudos grandes solo se muestren en formato 1 */
+.formato-2 .escudos-container,
+.formato-3 .escudos-container {
+    display: none !important;
+}
+
+.formato-1 .escudos-container {
+    display: flex !important;
+}
+
+/* Eliminar los contenedores nombre-container que ya no son necesarios */
+.nombre-container {
+    width: 100%;
+    position: relative;
+}
+
+/* Ajuste para texto más largo en nombres */
+.formato-2 .team .nombre-equipo-texto,
+.formato-3 .team .nombre-equipo-texto {
+    font-size: 32px; /* Un poco más pequeño que el original para acomodar escudos */
 } 
